@@ -1,0 +1,814 @@
+<title>Outrider — Save the Chaos for the Stage</title>
+<style>
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ee352e;
+    --gray: #a7a9ac;
+    --blue: #0039a6;
+    --green: #00933c;
+    --orange: #ff6319;
+    --yellow: #fccc0a;
+    --purple: #b933ad;
+    --hero-ground: #0a0a0a;
+    --rule: #d8d8d8;
+    --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Roboto Mono", "Courier New", monospace;
+    --track-tight: -0.01em;
+    --track-tighter: -0.02em;
+    --track-tightest: -0.035em;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { min-width: 320px; }
+
+  h1, h2, h3, p { margin: 0; }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  /* ---------- topbar ---------- */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .wordmark {
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: var(--track-tighter);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .topbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+    border: 2px solid var(--white);
+    padding: 7px 14px;
+  }
+
+  .topbar-link:focus-visible,
+  .btn:focus-visible,
+  .form input:focus-visible,
+  .form button:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+  }
+
+  /* ---------- status strip ---------- */
+
+  .status-strip {
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 6px 12px;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    background: var(--hero-ground);
+    overflow: hidden;
+  }
+
+  .hero-canvas-wrap {
+    position: relative;
+    height: min(78vh, 720px);
+    min-height: 460px;
+  }
+
+  .hero-canvas-wrap canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .hero-cap {
+    position: relative;
+    z-index: 2;
+    background: var(--black);
+    padding: clamp(28px, 5vw, 52px) 0 clamp(32px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  .hero h1 {
+    color: var(--white);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(2.6rem, 6.6vw, 5.6rem);
+    line-height: 0.94;
+    letter-spacing: var(--track-tightest);
+    text-wrap: balance;
+    max-width: 14ch;
+  }
+
+  .hero-sub {
+    color: var(--gray);
+    font-weight: 400;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.5;
+    max-width: 46ch;
+    margin-top: 20px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+    align-items: stretch;
+  }
+
+  /* ---------- buttons + form ---------- */
+
+  .btn {
+    appearance: none;
+    border: 3px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 24px;
+    cursor: pointer;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: #d02922; border-color: #d02922; }
+  .btn-ghost:hover { background: var(--white); color: var(--black); }
+
+  .form {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    max-width: 420px;
+  }
+
+  .form input {
+    flex: 1 1 200px;
+    min-width: 0;
+    border: 3px solid var(--white);
+    border-right: none;
+    background: var(--hero-ground);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: var(--track-tight);
+    padding: 0 14px;
+  }
+
+  .form input::placeholder { color: var(--gray); }
+
+  .form .btn {
+    border-left: none;
+    flex: none;
+  }
+
+  .form-note {
+    color: var(--gray);
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+    margin-top: 10px;
+  }
+
+  .form-note.confirmed { color: var(--green); font-weight: 700; }
+
+  /* ---------- section scaffolding ---------- */
+
+  section { padding: clamp(56px, 9vw, 104px) 0; }
+
+  .section-head {
+    background: var(--black);
+    color: var(--white);
+    display: inline-flex;
+    padding: 8px 16px;
+    margin-bottom: 14px;
+  }
+
+  .section-head span {
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    letter-spacing: var(--track-tighter);
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+
+  .section-sub {
+    color: #5a5c5e;
+    font-size: 1rem;
+    max-width: 56ch;
+    line-height: 1.55;
+    margin-top: 14px;
+    letter-spacing: var(--track-tight);
+  }
+
+  /* ---------- the line (features) ---------- */
+
+  .line-rail {
+    position: relative;
+    margin-top: 56px;
+  }
+
+  .line-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 15px;
+    height: 4px;
+    background: var(--black);
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 1.1s cubic-bezier(0.65, 0, 0.16, 1);
+  }
+
+  .line-rail.in-view .line-track { transform: scaleX(1); }
+
+  .stops {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .stop {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--d, 0s);
+  }
+
+  .line-rail.in-view .stop { opacity: 1; transform: translateY(0); }
+
+  .stop-disc {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--dot);
+    border: 3px solid var(--black);
+    margin-bottom: 16px;
+    flex: none;
+  }
+
+  .stop h3 {
+    font-weight: 700;
+    font-size: 0.98rem;
+    text-transform: uppercase;
+    letter-spacing: var(--track-tight);
+  }
+
+  .stop p {
+    color: #5a5c5e;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 8px;
+    letter-spacing: var(--track-tight);
+  }
+
+  /* ---------- board (pricing) ---------- */
+
+  .board {
+    background: #f4f4f4;
+  }
+
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 3px solid var(--black);
+    margin-top: 48px;
+    background: var(--black);
+  }
+
+  .plan {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 28px;
+  }
+
+  .plan + .plan { border-left: 3px solid var(--black); }
+
+  .plan-head {
+    background: var(--black);
+    color: var(--white);
+    padding: 16px 24px;
+  }
+
+  .plan.featured .plan-head { background: var(--red); }
+
+  .plan-head span {
+    display: block;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+  }
+
+  .plan-price {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 2.6vw, 2.3rem);
+    padding: 24px 24px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .plan-price sup {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gray);
+    top: -0.6em;
+  }
+
+  .plan-cycle {
+    font-size: 0.78rem;
+    color: #6b6d6f;
+    padding: 4px 24px 20px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .plan-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .plan-list li {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    letter-spacing: var(--track-tight);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .plan-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--black);
+  }
+
+  .plan.featured .plan-list li::before { background: var(--red); }
+
+  .plan .btn {
+    margin: 24px 24px 0;
+    border-color: var(--black);
+    color: var(--black);
+    justify-content: center;
+  }
+
+  .plan .btn:hover { background: var(--black); color: var(--white); }
+
+  .plan.featured .btn {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+  }
+
+  .plan.featured .btn:hover { background: #d02922; border-color: #d02922; }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+  }
+
+  .footer-tag {
+    color: var(--gray);
+    font-size: 0.85rem;
+    max-width: 34ch;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    color: #6b6d6f;
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 860px) {
+    .stops { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
+    .plans { grid-template-columns: 1fr; }
+    .plan + .plan { border-left: none; border-top: 3px solid var(--black); }
+  }
+
+  @media (max-width: 520px) {
+    .stops { grid-template-columns: repeat(2, 1fr); }
+    .form { max-width: 100%; }
+    .hero-actions { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .line-track, .stop { transition: none; }
+  }
+</style>
+
+<div class="status-strip">Load-in in progress — Outrider launches soon. Join the list for early access.</div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="#top">Outrider</a>
+    <a class="topbar-link" href="#plans">Pricing</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-canvas-wrap">
+      <canvas id="chaos" aria-hidden="true"></canvas>
+    </div>
+    <div class="hero-cap">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Tour management, built for the road</p>
+        <h1>Save the chaos for the stage.</h1>
+        <p class="hero-sub">Day sheets, setlists, stage plots, guest lists, and tech riders — one place for your whole crew, so the only chaos left is the good kind.</p>
+        <div class="hero-actions">
+          <form class="form" id="waitlist-form">
+            <label for="waitlist-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
+            <input id="waitlist-email" type="email" placeholder="you@yourband.com" required="required" />
+            <button type="submit" class="btn btn-primary">Notify me</button>
+          </form>
+          <a class="btn btn-ghost" href="#plans">See plans</a>
+        </div>
+        <p class="form-note" id="waitlist-note">No spam. One email when we launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="line" id="features">
+    <div class="wrap">
+      <div class="section-head"><span>The Route</span></div>
+      <h2 class="section-title">Everything your tour actually runs on.</h2>
+      <p class="section-sub">Six tools, one shared org, zero group texts asking where load-in is.</p>
+
+      <div class="line-rail" id="line-rail">
+        <div class="line-track"></div>
+        <div class="stops">
+          <div class="stop" style="--dot: var(--blue); --d: 0.05s;">
+            <div class="stop-disc"></div>
+            <h3>Today</h3>
+            <p>The day's load-in, soundcheck, and set times in one glance, for everyone on the tour.</p>
+          </div>
+          <div class="stop" style="--dot: var(--red); --d: 0.15s;">
+            <div class="stop-disc"></div>
+            <h3>Setlists</h3>
+            <p>Reorderable songs with lyrics and key, live on every phone at once.</p>
+          </div>
+          <div class="stop" style="--dot: var(--green); --d: 0.25s;">
+            <div class="stop-disc"></div>
+            <h3>Stage plots</h3>
+            <p>Drag-and-drop equipment layouts your crew and the house can both read.</p>
+          </div>
+          <div class="stop" style="--dot: var(--orange); --d: 0.35s;">
+            <div class="stop-disc"></div>
+            <h3>Guest lists</h3>
+            <p>Comps, will-call, and artist guests tracked per show, not per napkin.</p>
+          </div>
+          <div class="stop" style="--dot: var(--purple); --d: 0.45s;">
+            <div class="stop-disc"></div>
+            <h3>Tech riders</h3>
+            <p>Your specs, written once, attached to every show automatically.</p>
+          </div>
+          <div class="stop" style="--dot: var(--yellow); --d: 0.55s;">
+            <div class="stop-disc"></div>
+            <h3>Group chat</h3>
+            <p>One thread per tour — venue changes post themselves as system alerts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="board" id="plans">
+    <div class="wrap">
+      <div class="section-head"><span>Plans</span></div>
+      <h2 class="section-title">Free to start. Cheap to keep running.</h2>
+      <p class="section-sub">Every plan includes everything — Today through Group Chat. Paid plans just remove the caps.</p>
+
+      <div class="plans">
+        <div class="plan">
+          <div class="plan-head"><span>Free</span></div>
+          <div class="plan-price">$0</div>
+          <div class="plan-cycle">forever</div>
+          <ul class="plan-list">
+            <li>1 tour</li>
+            <li>2 organization members</li>
+            <li>Full feature set, no time limit</li>
+          </ul>
+          <a class="btn" href="#top">Start free</a>
+        </div>
+        <div class="plan featured">
+          <div class="plan-head"><span>Short Run</span></div>
+          <div class="plan-price">$8<sup>.99</sup></div>
+          <div class="plan-cycle">per month</div>
+          <ul class="plan-list">
+            <li>Unlimited tours</li>
+            <li>Unlimited members</li>
+            <li>14-day free trial, cancel anytime</li>
+          </ul>
+          <a class="btn" href="#top">Start 14-day trial</a>
+        </div>
+        <div class="plan">
+          <div class="plan-head"><span>Long Haul</span></div>
+          <div class="plan-price">$89<sup>.99</sup></div>
+          <div class="plan-cycle">per year — 2 months free</div>
+          <ul class="plan-list">
+            <li>Unlimited tours</li>
+            <li>Unlimited members</li>
+            <li>14-day free trial, cancel anytime</li>
+          </ul>
+          <a class="btn" href="#top">Start 14-day trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="#top">Outrider</a>
+        <p class="footer-tag">Tour management for touring bands and crew. iOS and Android, built for the road.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Dave Barry. All rights reserved.</span>
+      <span>Outrider is in development — features and pricing subject to change before launch.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var canvas = document.getElementById("chaos");
+    var ctx = canvas.getContext("2d");
+    var wrap = canvas.parentElement;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var streaks = [];
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+    function rand(a, b) { return a + Math.random() * (b - a); }
+
+    function buildStreaks() {
+      streaks = [];
+      var count = Math.round((W * H) / 26000);
+      for (var i = 0; i < count; i++) {
+        streaks.push({
+          x: rand(0, W),
+          y: rand(0, H * 0.7),
+          len: rand(30, 160),
+          angle: rand(-0.5, 0.5),
+          speed: rand(0.15, 0.6),
+          width: rand(1, 2.4),
+          alpha: rand(0.05, 0.22),
+          warm: Math.random() > 0.6
+        });
+      }
+    }
+
+    function resize() {
+      var rect = wrap.getBoundingClientRect();
+      W = rect.width;
+      H = rect.height;
+      canvas.width = W * DPR;
+      canvas.height = H * DPR;
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      buildStreaks();
+    }
+
+    function drawGrain(alpha) {
+      var w = 120, h = 120;
+      var off = document.createElement("canvas");
+      off.width = w; off.height = h;
+      var octx = off.getContext("2d");
+      var img = octx.createImageData(w, h);
+      for (var i = 0; i < img.data.length; i += 4) {
+        var v = Math.random() * 255;
+        img.data[i] = v; img.data[i + 1] = v; img.data[i + 2] = v;
+        img.data[i + 3] = Math.random() * 40;
+      }
+      octx.putImageData(img, 0, 0);
+      var pattern = ctx.createPattern(off, "repeat");
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = pattern;
+      ctx.fillRect(0, 0, W, H);
+      ctx.restore();
+    }
+
+    function frame() {
+      ctx.fillStyle = "#0a0a0a";
+      ctx.fillRect(0, 0, W, H);
+
+      ctx.globalCompositeOperation = "lighter";
+      for (var i = 0; i < streaks.length; i++) {
+        var s = streaks[i];
+        var dx = Math.cos(s.angle) * s.len;
+        var dy = Math.sin(s.angle) * s.len * 0.3;
+        var grad = ctx.createLinearGradient(s.x, s.y, s.x + dx, s.y + dy);
+        var c = s.warm ? "255,150,90" : "255,255,255";
+        grad.addColorStop(0, "rgba(" + c + ",0)");
+        grad.addColorStop(0.5, "rgba(" + c + "," + s.alpha + ")");
+        grad.addColorStop(1, "rgba(" + c + ",0)");
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = s.width;
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x + dx, s.y + dy);
+        ctx.stroke();
+
+        if (!reduceMotion) {
+          s.x += Math.cos(s.angle) * s.speed;
+          s.y += Math.sin(s.angle) * s.speed * 0.3 + 0.05;
+          if (s.x > W + 80) s.x = -80;
+          if (s.y > H) { s.y = 0; s.x = rand(0, W); }
+        }
+      }
+      ctx.globalCompositeOperation = "source-over";
+
+      ctx.save();
+      ctx.globalAlpha = 0.55;
+      ctx.fillStyle = "#000";
+      ctx.beginPath();
+      ctx.rect(0, H * 0.72, W, H * 0.28);
+      ctx.fill();
+      ctx.restore();
+
+      drawGrain(0.5);
+
+      if (!reduceMotion) requestAnimationFrame(frame);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    frame();
+  })();
+
+  (function () {
+    var rail = document.getElementById("line-rail");
+    if (!("IntersectionObserver" in window)) {
+      rail.classList.add("in-view");
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          rail.classList.add("in-view");
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+    io.observe(rail);
+  })();
+
+  (function () {
+    var form = document.getElementById("waitlist-form");
+    var note = document.getElementById("waitlist-note");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      note.textContent = "You're on the list — we'll email you at launch.";
+      note.classList.add("confirmed");
+      form.querySelector("button").textContent = "On the list";
+      form.querySelector("button").disabled = true;
+      form.querySelector("input").disabled = true;
+    });
+  })();
+</script>
