@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Outrider — tour management for touring bands and crew. Day sheets, setlists, stage plots, guest lists, and tech riders in one place.">
 <title>Outrider — Save the Chaos for the Stage</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
 <style>
   :root {
     --black: #111111;
@@ -68,12 +69,28 @@
   }
 
   .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     color: var(--white);
     font-weight: 900;
     font-size: 1.05rem;
     letter-spacing: var(--track-tighter);
     text-transform: uppercase;
     text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+  }
+
+  footer .logo-mark {
+    width: 30px;
+    height: 30px;
   }
 
   .topbar-link {
@@ -122,12 +139,23 @@
     min-height: 460px;
   }
 
-  .hero-canvas-wrap canvas {
+  .hero-canvas-wrap img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     display: block;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28%;
+    background: #000;
+    opacity: 0.55;
   }
 
   .hero-cap {
@@ -645,7 +673,7 @@
 
 <header class="topbar">
   <div class="wrap topbar-inner">
-    <a class="wordmark" href="#top">Outrider</a>
+    <a class="wordmark" href="#top">Outrider<img class="logo-mark" src="assets/logo.png" alt="" /></a>
     <a class="topbar-link" href="#plans">Pricing</a>
   </div>
 </header>
@@ -653,7 +681,8 @@
 <main id="top">
   <section class="hero">
     <div class="hero-canvas-wrap">
-      <canvas id="chaos" aria-hidden="true"></canvas>
+      <img src="assets/hero.jpg" alt="A packed crowd crowd-surfing at a live show" />
+      <div class="hero-scrim" aria-hidden="true"></div>
     </div>
     <div class="hero-cap">
       <div class="wrap">
@@ -902,7 +931,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <a class="wordmark" href="#top">Outrider</a>
+        <a class="wordmark" href="#top">Outrider<img class="logo-mark" src="assets/logo.png" alt="" /></a>
         <p class="footer-tag">Tour management for touring bands and crew. iOS and Android, built for the road.</p>
       </div>
       <div class="footer-links">
@@ -919,113 +948,6 @@
 </footer>
 
 <script>
-  (function () {
-    var canvas = document.getElementById("chaos");
-    var ctx = canvas.getContext("2d");
-    var wrap = canvas.parentElement;
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var streaks = [];
-    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
-
-    function rand(a, b) { return a + Math.random() * (b - a); }
-
-    function buildStreaks() {
-      streaks = [];
-      var count = Math.round((W * H) / 26000);
-      for (var i = 0; i < count; i++) {
-        streaks.push({
-          x: rand(0, W),
-          y: rand(0, H * 0.7),
-          len: rand(30, 160),
-          angle: rand(-0.5, 0.5),
-          speed: rand(0.15, 0.6),
-          width: rand(1, 2.4),
-          alpha: rand(0.05, 0.22),
-          warm: Math.random() > 0.6
-        });
-      }
-    }
-
-    function resize() {
-      var rect = wrap.getBoundingClientRect();
-      W = rect.width;
-      H = rect.height;
-      canvas.width = W * DPR;
-      canvas.height = H * DPR;
-      canvas.style.width = W + "px";
-      canvas.style.height = H + "px";
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      buildStreaks();
-    }
-
-    function drawGrain(alpha) {
-      var w = 120, h = 120;
-      var off = document.createElement("canvas");
-      off.width = w; off.height = h;
-      var octx = off.getContext("2d");
-      var img = octx.createImageData(w, h);
-      for (var i = 0; i < img.data.length; i += 4) {
-        var v = Math.random() * 255;
-        img.data[i] = v; img.data[i + 1] = v; img.data[i + 2] = v;
-        img.data[i + 3] = Math.random() * 40;
-      }
-      octx.putImageData(img, 0, 0);
-      var pattern = ctx.createPattern(off, "repeat");
-      ctx.save();
-      ctx.globalAlpha = alpha;
-      ctx.fillStyle = pattern;
-      ctx.fillRect(0, 0, W, H);
-      ctx.restore();
-    }
-
-    function frame() {
-      ctx.fillStyle = "#0a0a0a";
-      ctx.fillRect(0, 0, W, H);
-
-      ctx.globalCompositeOperation = "lighter";
-      for (var i = 0; i < streaks.length; i++) {
-        var s = streaks[i];
-        var dx = Math.cos(s.angle) * s.len;
-        var dy = Math.sin(s.angle) * s.len * 0.3;
-        var grad = ctx.createLinearGradient(s.x, s.y, s.x + dx, s.y + dy);
-        var c = s.warm ? "255,150,90" : "255,255,255";
-        grad.addColorStop(0, "rgba(" + c + ",0)");
-        grad.addColorStop(0.5, "rgba(" + c + "," + s.alpha + ")");
-        grad.addColorStop(1, "rgba(" + c + ",0)");
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = s.width;
-        ctx.beginPath();
-        ctx.moveTo(s.x, s.y);
-        ctx.lineTo(s.x + dx, s.y + dy);
-        ctx.stroke();
-
-        if (!reduceMotion) {
-          s.x += Math.cos(s.angle) * s.speed;
-          s.y += Math.sin(s.angle) * s.speed * 0.3 + 0.05;
-          if (s.x > W + 80) s.x = -80;
-          if (s.y > H) { s.y = 0; s.x = rand(0, W); }
-        }
-      }
-      ctx.globalCompositeOperation = "source-over";
-
-      ctx.save();
-      ctx.globalAlpha = 0.55;
-      ctx.fillStyle = "#000";
-      ctx.beginPath();
-      ctx.rect(0, H * 0.72, W, H * 0.28);
-      ctx.fill();
-      ctx.restore();
-
-      drawGrain(0.5);
-
-      if (!reduceMotion) requestAnimationFrame(frame);
-    }
-
-    window.addEventListener("resize", resize);
-    resize();
-    frame();
-  })();
-
   (function () {
     var rail = document.getElementById("line-rail");
     if (!("IntersectionObserver" in window)) {
