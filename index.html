@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Outrider — tour management for touring bands and crew. Day sheets, setlists, stage plots, guest lists, and tech riders in one place.">
 <title>Outrider — Save the Chaos for the Stage</title>
 <style>
   :root {
@@ -246,6 +252,106 @@
   }
 
   .form-note.confirmed { color: var(--green); font-weight: 700; }
+
+  /* ---------- app preview (live screens, lifted from the UI-direction mockup) ---------- */
+
+  .app-preview {
+    --ink: #111111;
+    --paper: #ffffff;
+    --rule: #111111;
+  }
+
+  .showcase-phones {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+  }
+
+  .showcase-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+    scroll-snap-align: start;
+  }
+
+  .app-preview .phone {
+    width: min(352px, 82vw);
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    min-height: 660px;
+    flex: none;
+  }
+
+  .app-preview .disc {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    flex: none;
+  }
+
+  .app-preview .appbar { background: var(--ink); color: #fff; padding: 16px 16px 14px; }
+  .app-preview .appbar .crumb { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #bbb; margin-bottom: 4px; }
+  .app-preview .appbar .btitle { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+  .app-preview .appbar .sub { font-size: 13px; font-weight: 500; color: #ddd; margin-top: 3px; }
+
+  .app-preview .tabbar { margin-top: auto; border-top: 3px solid var(--ink); display: flex; }
+  .app-preview .tabbar div { flex: 1; text-align: center; padding: 11px 0 13px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; border-left: 1px solid #ddd; }
+  .app-preview .tabbar div:first-child { border-left: none; }
+  .app-preview .tabbar div.on { color: var(--ink); }
+  .app-preview .tabbar div span { display: block; font-size: 15px; margin-bottom: 3px; }
+
+  .app-preview .sectionbar { background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 16px; }
+
+  .app-preview .venue { padding: 14px 16px; border-bottom: 1px solid var(--rule); }
+  .app-preview .venue .name { font-size: 16px; font-weight: 700; }
+  .app-preview .venue .addr { font-size: 12px; color: #444; margin-top: 2px; line-height: 1.45; }
+
+  .app-preview .rows { border-top: 1px solid var(--rule); }
+  .app-preview .row { display: flex; align-items: baseline; gap: 14px; padding: 13px 16px; border-bottom: 1px solid var(--rule); }
+  .app-preview .row .time { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; width: 96px; flex: none; font-variant-numeric: tabular-nums; }
+  .app-preview .row .what { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; flex: 1; }
+  .app-preview .row .dot { width: 14px; height: 14px; border-radius: 50%; flex: none; align-self: center; }
+  .app-preview .row.hot { background: var(--yellow); }
+  .app-preview .row.hot .note { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .app-preview .alertline { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--rule); }
+  .app-preview .alertline .disc { width: 26px; height: 26px; background: var(--orange); font-size: 12px; }
+  .app-preview .alertline p { font-size: 12px; font-weight: 500; line-height: 1.4; }
+
+  .app-preview .song { display: flex; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--rule); align-items: flex-start; }
+  .app-preview .song .disc { width: 28px; height: 28px; font-size: 14px; background: var(--ink); margin-top: 1px; }
+  .app-preview .song .sbody { flex: 1; min-width: 0; }
+  .app-preview .song .title { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .app-preview .song .meta { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #555; margin-top: 2px; }
+  .app-preview .song .notes { font-size: 12px; color: #333; margin-top: 6px; line-height: 1.45; border-left: 3px solid var(--yellow); padding-left: 8px; }
+  .app-preview .song .grip { color: #bbb; font-size: 16px; font-weight: 700; flex: none; align-self: center; letter-spacing: -1px; }
+  .app-preview .song.enc .disc { background: var(--red); }
+  .app-preview .addrow { padding: 13px 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); border-bottom: 1px solid var(--rule); }
+
+  .app-preview .tourpad { padding-top: 18px; }
+  .app-preview .waypoint { display: flex; gap: 14px; padding: 0 16px; position: relative; }
+  .app-preview .waypoint .rail { width: 34px; flex: none; display: flex; flex-direction: column; align-items: center; }
+  .app-preview .waypoint .rail .disc { width: 34px; height: 34px; font-size: 15px; background: var(--green); z-index: 1; }
+  .app-preview .waypoint .rail .rline { width: 6px; flex: 1; background: var(--green); }
+  .app-preview .waypoint:last-child .rail .rline { background: transparent; }
+  .app-preview .waypoint .wbody { flex: 1; padding: 0 0 22px; }
+  .app-preview .waypoint .date { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; }
+  .app-preview .waypoint .city { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-top: 1px; }
+  .app-preview .waypoint .ven { font-size: 12px; color: #444; margin-top: 2px; }
+  .app-preview .waypoint .settime { font-size: 12px; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .app-preview .waypoint.today .rail .disc { background: var(--red); }
+  .app-preview .waypoint.today .city::after { content: "TODAY"; background: var(--red); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 2px 6px; margin-left: 8px; vertical-align: 3px; }
+
+  .showcase-caption { width: min(352px, 82vw); font-size: 0.85rem; line-height: 1.5; color: #444; margin-top: 16px; letter-spacing: var(--track-tight); }
 
   /* ---------- section scaffolding ---------- */
 
@@ -532,6 +638,8 @@
     .line-track, .stop { transition: none; }
   }
 </style>
+</head>
+<body>
 
 <div class="status-strip">Load-in in progress — Outrider launches soon. Join the list for early access.</div>
 
@@ -561,6 +669,142 @@
           <a class="btn btn-ghost" href="#plans">See plans</a>
         </div>
         <p class="form-note" id="waitlist-note">No spam. One email when we launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview">
+    <div class="wrap">
+      <div class="section-head"><span>The App</span></div>
+      <h2 class="section-title">What you'll actually see on show day.</h2>
+      <p class="section-sub">This is the real interface, not a mockup of one — same schedule, same setlist, same route your band would actually run.</p>
+
+      <div class="showcase-phones app-preview">
+        <div class="showcase-col">
+          <div class="phone">
+            <div class="appbar">
+              <div class="crumb">Northeast Run &middot; Show 4 of 9</div>
+              <div class="btitle">Thu Jul 9</div>
+              <div class="sub">Poughkeepsie NY</div>
+            </div>
+            <div class="sectionbar">Venue</div>
+            <div class="venue">
+              <div class="name">The Chance Theater</div>
+              <div class="addr">6 Crannell St, Poughkeepsie NY 12601<br>Prod. contact: Dana R &mdash; (845) 555-0140</div>
+            </div>
+            <div class="sectionbar">Schedule</div>
+            <div class="rows">
+              <div class="row"><span class="time">3:00P</span><span class="what">Load-in</span><span class="dot" style="background:var(--blue)"></span></div>
+              <div class="row"><span class="time">5:30P</span><span class="what">Soundcheck</span><span class="dot" style="background:var(--green)"></span></div>
+              <div class="row"><span class="time">7:00P</span><span class="what">Doors</span><span class="dot" style="background:var(--gray)"></span></div>
+              <div class="row hot"><span class="time">9:15P</span><span class="what">Set<br><span class="note">Alert set &mdash; 8:55P</span></span><span class="dot" style="background:var(--red)"></span></div>
+              <div class="row"><span class="time">11:00P</span><span class="what">Load-out</span><span class="dot" style="background:var(--blue)"></span></div>
+            </div>
+            <div class="alertline">
+              <span class="disc">!</span>
+              <p><strong>Set alert on.</strong> You'll be notified 20 min before set time.</p>
+            </div>
+            <div class="tabbar">
+              <div class="on"><span>&#9632;</span>Today</div>
+              <div><span>&#9679;</span>Tour</div>
+              <div><span>&#9834;</span>Setlist</div>
+              <div><span>&#9638;</span>Stage</div>
+              <div><span>&#8801;</span>More</div>
+            </div>
+          </div>
+          <p class="showcase-caption">Today, at a glance. Load-in, soundcheck, doors, set &mdash; the one time that matters is impossible to miss.</p>
+        </div>
+
+        <div class="showcase-col">
+          <div class="phone">
+            <div class="appbar">
+              <div class="crumb">Setlist &middot; The Chance &middot; Jul 9</div>
+              <div class="btitle">Main Set</div>
+              <div class="sub">11 songs &middot; ~74 min</div>
+            </div>
+            <div class="sectionbar">Set &mdash; drag to reorder</div>
+            <div>
+              <div class="song"><span class="disc">1</span>
+                <div class="sbody"><div class="title">Northbound</div><div class="meta">Key A &middot; 4:12</div></div>
+                <span class="grip">&#8801;</span></div>
+              <div class="song"><span class="disc">2</span>
+                <div class="sbody"><div class="title">Wire &amp; Glass</div><div class="meta">Key Em &middot; 3:48</div>
+                  <div class="notes">Capo 2. Straight into #3, no break &mdash; drums count in.</div></div>
+                <span class="grip">&#8801;</span></div>
+              <div class="song"><span class="disc">3</span>
+                <div class="sbody"><div class="title">Poughkeepsie Rain</div><div class="meta">Key D &middot; 5:02</div></div>
+                <span class="grip">&#8801;</span></div>
+              <div class="song"><span class="disc">4</span>
+                <div class="sbody"><div class="title">Half Past Late</div><div class="meta">Key G &middot; 3:30</div>
+                  <div class="notes">G / C / D / Em &mdash; bridge: Am / C / G. J takes 2nd verse.</div></div>
+                <span class="grip">&#8801;</span></div>
+              <div class="song"><span class="disc">5</span>
+                <div class="sbody"><div class="title">Exit 9</div><div class="meta">Key C &middot; 4:44</div></div>
+                <span class="grip">&#8801;</span></div>
+            </div>
+            <div class="sectionbar" style="background:var(--red)">Encore</div>
+            <div>
+              <div class="song enc"><span class="disc">E1</span>
+                <div class="sbody"><div class="title">Last Train Home</div><div class="meta">Key A &middot; 6:10</div></div>
+                <span class="grip">&#8801;</span></div>
+            </div>
+            <div class="addrow">+ Add song from library</div>
+            <div class="tabbar">
+              <div><span>&#9632;</span>Today</div>
+              <div><span>&#9679;</span>Tour</div>
+              <div class="on"><span>&#9834;</span>Setlist</div>
+              <div><span>&#9638;</span>Stage</div>
+              <div><span>&#8801;</span>More</div>
+            </div>
+          </div>
+          <p class="showcase-caption">Drag to reorder, mid-soundcheck. Chord notes live right under the song, not in a separate app.</p>
+        </div>
+
+        <div class="showcase-col">
+          <div class="phone">
+            <div class="appbar">
+              <div class="crumb">Active tour</div>
+              <div class="btitle">Northeast Run</div>
+              <div class="sub">Jul 6 &ndash; Jul 18 &middot; 9 shows</div>
+            </div>
+            <div class="sectionbar" style="background:var(--green)">Route</div>
+            <div class="tourpad">
+              <div class="waypoint">
+                <div class="rail"><span class="disc">1</span><span class="rline"></span></div>
+                <div class="wbody"><div class="date">Mon Jul 6</div><div class="city">Albany NY</div>
+                  <div class="ven">Empire Underground</div><div class="settime">SET 9:00P &#10003;</div></div>
+              </div>
+              <div class="waypoint">
+                <div class="rail"><span class="disc">2</span><span class="rline"></span></div>
+                <div class="wbody"><div class="date">Tue Jul 7</div><div class="city">Kingston NY</div>
+                  <div class="ven">Tubby's</div><div class="settime">SET 8:30P &#10003;</div></div>
+              </div>
+              <div class="waypoint today">
+                <div class="rail"><span class="disc">4</span><span class="rline"></span></div>
+                <div class="wbody"><div class="date">Thu Jul 9</div><div class="city">Poughkeepsie NY</div>
+                  <div class="ven">The Chance Theater</div><div class="settime">SET 9:15P</div></div>
+              </div>
+              <div class="waypoint">
+                <div class="rail"><span class="disc">5</span><span class="rline"></span></div>
+                <div class="wbody"><div class="date">Fri Jul 10</div><div class="city">New Haven CT</div>
+                  <div class="ven">Cafe Nine</div><div class="settime">SET 9:30P</div></div>
+              </div>
+              <div class="waypoint">
+                <div class="rail"><span class="disc">6</span><span class="rline"></span></div>
+                <div class="wbody"><div class="date">Sat Jul 11</div><div class="city">Providence RI</div>
+                  <div class="ven">Askew</div><div class="settime">SET 10:00P</div></div>
+              </div>
+            </div>
+            <div class="tabbar">
+              <div><span>&#9632;</span>Today</div>
+              <div class="on"><span>&#9679;</span>Tour</div>
+              <div><span>&#9834;</span>Setlist</div>
+              <div><span>&#9638;</span>Stage</div>
+              <div><span>&#8801;</span>More</div>
+            </div>
+          </div>
+          <p class="showcase-caption">Your whole run, mapped like a line. Tonight's stop is always the one lit up red.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -812,3 +1056,5 @@
     });
   })();
 </script>
+</body>
+</html>
