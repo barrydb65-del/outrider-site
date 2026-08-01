@@ -7,6 +7,21 @@
 <title>Outrider — Save the Chaos for the Stage</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <style>
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --black: #111111;
     --white: #ffffff;
@@ -19,7 +34,7 @@
     --purple: #b933ad;
     --hero-ground: #0a0a0a;
     --rule: #d8d8d8;
-    --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display: "Outrider Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, "SF Mono", "Roboto Mono", "Courier New", monospace;
     --track-tight: -0.01em;
     --track-tighter: -0.02em;
@@ -34,6 +49,7 @@
     background: var(--white);
     color: var(--black);
     font-family: var(--font-display);
+    font-synthesis: none;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
