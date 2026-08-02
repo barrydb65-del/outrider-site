@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Outrider — tour management for touring bands and crew. Day sheets, setlists, stage plots, guest lists, and tech riders in one place.">
+<meta name="description" content="Outrider — tour management for touring bands and crew. Day sheets, setlists, stage plots, guest lists, and tech/hospitality riders in one place.">
 <title>Outrider — Save the Chaos for the Stage</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <style>
@@ -81,31 +81,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 68px;
   }
 
   .wordmark {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: var(--white);
     font-weight: 900;
-    font-size: 1.05rem;
+    font-size: 1.3rem;
     letter-spacing: var(--track-tighter);
     text-decoration: none;
   }
 
   .logo-mark {
-    width: 26px;
-    height: 26px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     object-fit: cover;
     flex: none;
   }
 
   footer .logo-mark {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
   }
 
   .topbar-link {
@@ -132,10 +132,10 @@
     background: var(--red);
     color: var(--white);
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.82rem;
     letter-spacing: var(--track-tight);
     text-align: center;
-    padding: 6px 12px;
+    padding: 9px 12px;
   }
 
   /* ---------- hero ---------- */
@@ -145,8 +145,6 @@
     background: var(--hero-ground);
     overflow: hidden;
     min-height: min(92vh, 820px);
-    display: flex;
-    align-items: flex-end;
   }
 
   .hero-photo {
@@ -166,7 +164,10 @@
   }
 
   .hero-cap {
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 2;
     padding: clamp(28px, 5vw, 52px) 0 clamp(40px, 6vw, 64px);
   }
@@ -677,7 +678,7 @@
       <div class="wrap">
         <p class="eyebrow"><span class="eyebrow-dot"></span>Tour management, built for the road</p>
         <h1>Save the chaos for the stage.</h1>
-        <p class="hero-sub">Day sheets, setlists, stage plots, guest lists, and tech riders — one place for your whole crew, so the only chaos left is the good kind.</p>
+        <p class="hero-sub">Day sheets, setlists, stage plots, guest lists, and tech/hospitality riders — one place for your whole crew, so the only chaos left is the good kind.</p>
         <div class="hero-actions">
           <form class="form" id="waitlist-form" action="https://formspree.io/f/xkodadbn" method="POST">
             <input type="hidden" name="_subject" value="New Outrider waitlist signup" />
@@ -859,7 +860,7 @@
           </div>
           <div class="stop" style="--dot: var(--purple); --d: 0.45s;">
             <div class="stop-disc"></div>
-            <h3>Tech riders</h3>
+            <h3>Tech/Hospitality riders</h3>
             <p>Your specs, written once, attached to every show automatically.</p>
           </div>
           <div class="stop" style="--dot: var(--yellow); --d: 0.55s;">
