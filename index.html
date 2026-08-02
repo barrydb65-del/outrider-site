@@ -101,6 +101,10 @@
     border-radius: 50%;
     object-fit: cover;
     flex: none;
+    /* optical nudge: a solid dark disc reads as sitting lower than open
+       letterforms at the same mathematical center — shift up slightly
+       so it lines up with the "O" by eye, not just by the numbers */
+    transform: translateY(-1px);
   }
 
   footer .logo-mark {
