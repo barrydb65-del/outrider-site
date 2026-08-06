@@ -382,6 +382,30 @@
 
   .showcase-caption { width: min(352px, 82vw); font-size: 0.85rem; line-height: 1.5; color: #444; margin-top: 16px; letter-spacing: var(--track-tight); }
 
+  .app-preview .spgrid-wrap { flex: 1; display: flex; padding: 16px; }
+  .app-preview .spgrid {
+    flex: 1;
+    position: relative;
+    border: 2px solid var(--ink);
+    background-image: linear-gradient(#e2e2e2 1px, transparent 1px), linear-gradient(90deg, #e2e2e2 1px, transparent 1px);
+    background-size: 12.5% 12.5%;
+  }
+  .app-preview .splabel { position: absolute; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #9a9a9a; text-transform: uppercase; }
+  .app-preview .splabel.up { top: 8px; left: 8px; }
+  .app-preview .splabel.aud { bottom: -20px; left: 50%; transform: translateX(-50%); }
+  .app-preview .spdisc {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .app-preview .spdisc.ring { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--ink); }
+
   /* ---------- section scaffolding ---------- */
 
   section { padding: clamp(56px, 9vw, 104px) 0; }
@@ -829,6 +853,40 @@
           </div>
           <p class="showcase-caption">Your whole run, mapped like a line. Tonight's stop is always the one lit up red.</p>
         </div>
+
+        <div class="showcase-col">
+          <div class="phone">
+            <div class="appbar">
+              <div class="crumb">Stage plot &middot; The Chance &middot; Jul 9</div>
+              <div class="btitle">Main Stage</div>
+              <div class="sub">18&prime; x 24&prime; &middot; 9 positions</div>
+            </div>
+            <div class="sectionbar">Plot</div>
+            <div class="spgrid-wrap">
+              <div class="spgrid">
+                <span class="splabel up">Upstage</span>
+                <span class="splabel aud">Audience</span>
+                <div class="spdisc" style="left:14.3%; top:24%; width:34px; height:34px; background:var(--orange)">K</div>
+                <div class="spdisc" style="left:44%; top:16.2%; width:46px; height:46px; background:var(--blue)">D</div>
+                <div class="spdisc" style="left:59.7%; top:10.4%; width:30px; height:30px; background:var(--purple)">Tp</div>
+                <div class="spdisc" style="left:71.7%; top:10.4%; width:30px; height:30px; background:var(--purple)">Tb</div>
+                <div class="spdisc" style="left:85.6%; top:10.4%; width:30px; height:30px; background:var(--purple)">Sx</div>
+                <div class="spdisc ring" style="left:8.2%; top:46.1%; width:34px; height:34px; background:var(--red)">G</div>
+                <div class="spdisc ring" style="left:79.7%; top:46.1%; width:34px; height:34px; background:var(--green)">B</div>
+                <div class="spdisc ring" style="left:32%; top:71.9%; width:28px; height:28px; background:var(--ink)">M</div>
+                <div class="spdisc ring" style="left:59.7%; top:71.9%; width:28px; height:28px; background:var(--ink)">M</div>
+              </div>
+            </div>
+            <div class="tabbar">
+              <div><span>&#9632;</span>Today</div>
+              <div><span>&#9679;</span>Tour</div>
+              <div><span>&#9834;</span>Setlist</div>
+              <div class="on"><span>&#9638;</span>Stage</div>
+              <div><span>&#8801;</span>More</div>
+            </div>
+          </div>
+          <p class="showcase-caption">Every input, plotted before you get there &mdash; color-coded by instrument, so front-of-house reads it in one glance.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -880,7 +938,7 @@
   <section class="board" id="plans">
     <div class="wrap">
       <div class="section-head"><span>Plans</span></div>
-      <h2 class="section-title">Free to start.<br>Fair to keep running.</h2>
+      <h2 class="section-title">Free to start.<br>Fair to keep rolling.</h2>
       <p class="section-sub">Every plan includes everything — Today through Group Chat. Paid plans just remove the caps.</p>
 
       <div class="plans">
