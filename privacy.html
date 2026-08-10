@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Outrider Privacy Policy — what information we collect, how we use it, and the choices you have.">
+<title>Privacy Policy — Outrider</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<style>
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ee352e;
+    --gray: #a7a9ac;
+    --rule: #d8d8d8;
+    --font-display: "Outrider Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --track-tight: -0.01em;
+    --track-tighter: -0.02em;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { min-width: 320px; }
+
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  /* ---------- topbar ---------- */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+    transform: translateY(-1px);
+  }
+
+  footer .logo-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    border: 2px solid var(--white);
+    padding: 7px 14px;
+  }
+
+  .topbar-link:focus-visible {
+    outline: 3px solid #fccc0a;
+    outline-offset: 2px;
+  }
+
+  /* ---------- legal article ---------- */
+
+  .legal-head {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(28px, 5vw, 40px);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .legal-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 16px;
+  }
+
+  .legal-eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  .legal-head h1 {
+    font-weight: 900;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    letter-spacing: var(--track-tighter);
+  }
+
+  .legal-effective {
+    color: #5a5c5e;
+    font-size: 0.9rem;
+    letter-spacing: var(--track-tight);
+    margin-top: 14px;
+  }
+
+  .legal-body {
+    max-width: 720px;
+    padding: clamp(40px, 7vw, 64px) 0 clamp(64px, 10vw, 96px);
+  }
+
+  .legal-body h2 {
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    margin-top: 44px;
+    margin-bottom: 14px;
+  }
+
+  .legal-body h2:first-child { margin-top: 0; }
+
+  .legal-body h3 {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: var(--track-tight);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  .legal-body p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 14px;
+  }
+
+  .legal-body ul {
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+
+  .legal-body li {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .legal-body strong { color: var(--black); }
+
+  .legal-body a {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 40px 0 0;
+  }
+
+  .legal-footnote {
+    color: #8a8c8e;
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: var(--track-tight);
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+  }
+
+  .footer-tag {
+    color: var(--gray);
+    font-size: 0.85rem;
+    max-width: 34ch;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    color: var(--gray);
+  }
+
+  .footer-links a:hover,
+  .footer-links a[aria-current="page"] { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    color: #6b6d6f;
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  @media (max-width: 520px) {
+    .legal-body p, .legal-body li { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo.png" alt="" />Outrider</a>
+    <a class="topbar-link" href="/">Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-head">
+    <div class="wrap">
+      <p class="legal-eyebrow"><span class="legal-eyebrow-dot"></span>Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="legal-effective">Effective date: August 10, 2026</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="legal-body">
+      <p>Dave Barry, doing business as Outrider ("we," "us," or "our"), provides the Outrider mobile application and related services (the "Service"). This Privacy Policy explains what information we collect, how we use it, and the choices you have.</p>
+      <p>By creating an account or using Outrider, you agree to the collection and use of information as described here.</p>
+
+      <hr class="legal-hr" />
+
+      <h2>1. Information We Collect</h2>
+
+      <h3>Account information</h3>
+      <ul>
+        <li>Email address, name, and password (stored as a salted hash — we never store or can see your plaintext password).</li>
+        <li>If you sign in with Google, your Google account name, email address, and a unique Google identifier, as provided by Google's Sign-In service.</li>
+      </ul>
+
+      <h3>Organization and tour data you create</h3>
+      <ul>
+        <li>Organization name and membership (who's on your team, their role and email).</li>
+        <li>Tour names and date ranges.</li>
+        <li>Show details: venue name, address, city/state, contact names, load-in/soundcheck/set times, lodging information.</li>
+        <li>Setlists, including song titles, keys, durations, and lyrics you enter.</li>
+        <li>Guest list entries (names, party sizes, entry type, notes).</li>
+        <li>Tech riders and hospitality riders you write.</li>
+        <li>Stage plot layouts (equipment positions you place on the canvas).</li>
+        <li>Group messages sent within a tour's chat.</li>
+        <li>Notification preferences (e.g., alert timing, which alerts you've muted).</li>
+      </ul>
+
+      <h3>Subscription and payment information</h3>
+      <ul>
+        <li>We use RevenueCat, the Apple App Store, Google Play, and/or Stripe to process subscriptions. We receive subscription status (active, trialing, canceled, etc.) and renewal dates from these providers.</li>
+        <li>We do <strong>not</strong> collect or store your full payment card number. Card details are handled entirely by Apple, Google, or Stripe.</li>
+      </ul>
+
+      <h3>Automatically collected information</h3>
+      <ul>
+        <li>Basic request logs (timestamp, endpoint, response status) for reliability and debugging.</li>
+        <li>Push notification tokens, if you enable notifications, so we can deliver show-change alerts.</li>
+      </ul>
+
+      <h2>2. How We Use Information</h2>
+      <p>We use the information above to:</p>
+      <ul>
+        <li>Provide and operate the Service (create your account, sync your tour data across your team, send show-change notifications).</li>
+        <li>Enforce plan limits (e.g., free-tier caps on members and tours).</li>
+        <li>Process and verify subscriptions.</li>
+        <li>Maintain security (authenticate requests, detect abuse).</li>
+        <li>Communicate with you about your account or the Service.</li>
+      </ul>
+      <p>We do not sell your personal information.</p>
+
+      <h2>3. How We Share Information</h2>
+      <p>We share information only with:</p>
+      <ul>
+        <li><strong>Service providers</strong> who process data on our behalf: our hosting/database provider, RevenueCat (subscription management), Stripe (web payments), Google (Sign-In verification), and push notification services.</li>
+        <li><strong>Your organization members</strong> — tour, show, setlist, guest list, rider, stage plot, and chat data you create is visible to other members of your organization, by design, so your team can collaborate.</li>
+        <li><strong>Law enforcement or legal process</strong>, if required to comply with applicable law.</li>
+        <li><strong>A successor entity</strong>, if we're involved in a merger, acquisition, or sale of assets — you'll be notified if your data becomes subject to a different privacy policy.</li>
+      </ul>
+
+      <h2>4. Data Retention and Deletion</h2>
+      <p>We retain your data for as long as your account is active. You can delete your account at any time from the app's settings, which permanently removes your user record; if you're the sole remaining owner of an organization, the organization and its data are deleted as well.</p>
+
+      <h2>5. Your Choices</h2>
+      <ul>
+        <li><strong>Access/update</strong>: You can view and edit most of your data directly in the app.</li>
+        <li><strong>Delete</strong>: Account deletion is available in-app and is permanent.</li>
+        <li><strong>Notifications</strong>: You can disable push notifications and mute per-tour alerts in Settings.</li>
+        <li><strong>Marketing</strong>: We do not send marketing email at this time; if that changes, you'll be able to opt out.</li>
+      </ul>
+
+      <h2>6. Children's Privacy</h2>
+      <p>Outrider is not directed at children under 13 (or the relevant minimum age in your jurisdiction), and we do not knowingly collect information from children. If you believe a child has provided us information, contact us and we'll delete it.</p>
+
+      <h2>7. Security</h2>
+      <p>We use industry-standard measures to protect your data, including password hashing (bcrypt), encrypted connections (HTTPS/TLS), and signed authentication tokens. No method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>8. International Users</h2>
+      <p>Your information may be processed in a country other than the one you live in. By using the Service, you consent to this transfer.</p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We'll update the "Effective date" above and, for material changes, provide additional notice (e.g., an in-app notice).</p>
+
+      <h2>10. Contact Us</h2>
+      <p>Questions about this policy or your data? Contact us at <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo.png" alt="" />Outrider</a>
+        <p class="footer-tag">Tour management for touring bands and crew. iOS and Android, built for the road.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy" aria-current="page">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Dave Barry. All rights reserved.</span>
+      <span>Outrider is in development — features and pricing subject to change before launch.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

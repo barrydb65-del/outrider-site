@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Outrider Terms of Service — the terms that govern your access to and use of the Outrider app.">
+<title>Terms of Service — Outrider</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<style>
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ee352e;
+    --gray: #a7a9ac;
+    --rule: #d8d8d8;
+    --font-display: "Outrider Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --track-tight: -0.01em;
+    --track-tighter: -0.02em;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { min-width: 320px; }
+
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  /* ---------- topbar ---------- */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+    transform: translateY(-1px);
+  }
+
+  footer .logo-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    border: 2px solid var(--white);
+    padding: 7px 14px;
+  }
+
+  .topbar-link:focus-visible {
+    outline: 3px solid #fccc0a;
+    outline-offset: 2px;
+  }
+
+  /* ---------- legal article ---------- */
+
+  .legal-head {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(28px, 5vw, 40px);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .legal-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 16px;
+  }
+
+  .legal-eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  .legal-head h1 {
+    font-weight: 900;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    letter-spacing: var(--track-tighter);
+  }
+
+  .legal-effective {
+    color: #5a5c5e;
+    font-size: 0.9rem;
+    letter-spacing: var(--track-tight);
+    margin-top: 14px;
+  }
+
+  .legal-body {
+    max-width: 720px;
+    padding: clamp(40px, 7vw, 64px) 0 clamp(64px, 10vw, 96px);
+  }
+
+  .legal-body h2 {
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    margin-top: 44px;
+    margin-bottom: 14px;
+  }
+
+  .legal-body h2:first-child { margin-top: 0; }
+
+  .legal-body h3 {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: var(--track-tight);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  .legal-body p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 14px;
+  }
+
+  .legal-body ul {
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+
+  .legal-body li {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .legal-body strong { color: var(--black); }
+
+  .legal-body a {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-caps {
+    font-size: 0.9rem;
+  }
+
+  .legal-hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 40px 0 0;
+  }
+
+  .legal-footnote {
+    color: #8a8c8e;
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: var(--track-tight);
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+  }
+
+  .footer-tag {
+    color: var(--gray);
+    font-size: 0.85rem;
+    max-width: 34ch;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    color: var(--gray);
+  }
+
+  .footer-links a:hover,
+  .footer-links a[aria-current="page"] { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    color: #6b6d6f;
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  @media (max-width: 520px) {
+    .legal-body p, .legal-body li { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo.png" alt="" />Outrider</a>
+    <a class="topbar-link" href="/">Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-head">
+    <div class="wrap">
+      <p class="legal-eyebrow"><span class="legal-eyebrow-dot"></span>Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="legal-effective">Effective date: August 10, 2026</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="legal-body">
+      <p>These Terms of Service ("Terms") govern your access to and use of the Outrider mobile application and related services (the "Service"), provided by Dave Barry, doing business as Outrider ("we," "us," "our"). By creating an account or using the Service, you agree to these Terms. If you don't agree, don't use the Service.</p>
+
+      <hr class="legal-hr" />
+
+      <h2>1. Eligibility and Accounts</h2>
+      <p>You must be at least 13 years old (or the minimum age of digital consent in your country) to use Outrider. You're responsible for maintaining the confidentiality of your login credentials and for all activity under your account. Notify us immediately of any unauthorized use.</p>
+
+      <h2>2. Organizations and Teams</h2>
+      <p>Creating an account automatically creates an "organization." Organization owners can invite members; members can view and edit shared tour, show, setlist, guest list, rider, stage plot, and chat data within that organization, subject to their role. You're responsible for who you invite and what access you grant them.</p>
+
+      <h2>3. Subscriptions and Billing</h2>
+      <ul>
+        <li>Outrider offers a free tier (limited to 1 tour and 2 organization members) and paid plans ("Short Run" monthly and "Long Haul" annual) that remove those limits.</li>
+        <li>New organizations receive a 14-day free trial with full access. After the trial, unless you subscribe, your organization reverts to the free tier's limits — <strong>your existing data is never deleted or hidden</strong>, only new tours/members beyond the free limits are restricted.</li>
+        <li>Paid subscriptions are billed through the Apple App Store, Google Play, or Stripe (web), depending on how you subscribed, and <strong>auto-renew</strong> until canceled.</li>
+        <li><strong>Cancellation</strong>: Manage or cancel your subscription through the platform you subscribed on (App Store, Google Play, or the Stripe customer portal via Settings). Canceling stops future renewals; you retain paid access through the end of the current billing period.</li>
+        <li><strong>Refunds</strong>: Refunds are handled according to the policies of the platform you purchased through (Apple, Google, or Stripe) — we don't independently issue refunds outside those channels.</li>
+        <li>Prices are subject to change; we'll provide notice before any change takes effect for existing subscribers where required by law or platform policy.</li>
+      </ul>
+
+      <h2>4. Your Content</h2>
+      <p>You retain ownership of the tour data, setlists, lyrics, rider content, stage plots, and messages you create ("Your Content"). By submitting Your Content, you grant us a limited license to host, store, transmit, and display it solely to operate the Service (e.g., syncing it to your organization members and sending related notifications). We don't claim ownership of Your Content and don't use it for purposes beyond operating the Service.</p>
+      <p>You're responsible for Your Content and for having the rights to share it (for example, song lyrics you enter for your own band's use). Don't upload content that infringes someone else's rights or violates the law.</p>
+
+      <h2>5. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the Service for any unlawful purpose.</li>
+        <li>Attempt to access another organization's data without authorization.</li>
+        <li>Interfere with or disrupt the Service's operation or security.</li>
+        <li>Reverse-engineer or attempt to extract source code from the Service, except as permitted by law.</li>
+        <li>Use the Service to harass, abuse, or harm others.</li>
+      </ul>
+      <p>We may suspend or terminate accounts that violate these Terms.</p>
+
+      <h2>6. Termination</h2>
+      <p>You may delete your account at any time in Settings. We may suspend or terminate your access if you violate these Terms, or discontinue the Service (or parts of it) with reasonable notice where practicable.</p>
+
+      <h2>7. Disclaimers</h2>
+      <p class="legal-caps">THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. We don't guarantee the Service will be uninterrupted, error-free, or that show/schedule data will always be accurate or delivered in time — always confirm critical show-day details (load-in times, venue changes) through direct communication with your team and venue, not solely through the app.</p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p class="legal-caps">TO THE MAXIMUM EXTENT PERMITTED BY LAW, DAVE BARRY WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF DATA, REVENUE, OR PROFITS, ARISING FROM YOUR USE OF THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY FOR ANY CLAIM RELATING TO THE SERVICE WILL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS BEFORE THE CLAIM AROSE.</p>
+
+      <h2>9. Changes to the Service or These Terms</h2>
+      <p>We may update the Service and these Terms from time to time. We'll update the "Effective date" above; for material changes, we'll provide additional notice (e.g., an in-app notice) before they take effect. Continued use after changes take effect means you accept the updated Terms.</p>
+
+      <h2>10. Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of New York, USA, without regard to conflict-of-law principles.</p>
+
+      <h2>11. Apple and Google Platform Terms</h2>
+      <p>If you downloaded Outrider from the Apple App Store, you acknowledge that these Terms are between you and us only, not Apple, and Apple has no obligation to provide support for the Service. If you subscribed through the App Store or Google Play, their respective terms of service also apply to the purchase transaction.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>Questions about these Terms? Contact us at <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo.png" alt="" />Outrider</a>
+        <p class="footer-tag">Tour management for touring bands and crew. iOS and Android, built for the road.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms" aria-current="page">Terms of Service</a>
+        <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Dave Barry. All rights reserved.</span>
+      <span>Outrider is in development — features and pricing subject to change before launch.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
