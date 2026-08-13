@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Outrider — tour management for touring bands and crew. Day sheets, setlists, stage plots, guest lists, and tech/hospitality riders in one place.">
 <title>Outrider — Save the Chaos for the Stage</title>
-<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="alternate icon" href="assets/favicon.ico">
 <style>
   @font-face {
     font-family: "Outrider Grotesk";
@@ -406,6 +407,22 @@
   }
   .app-preview .spdisc.ring { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--ink); }
 
+  .app-preview .chatlist { flex: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+  .app-preview .sysmsg { align-self: center; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #999; text-transform: uppercase; margin: 2px 0 4px; }
+  .app-preview .msg-row { display: flex; flex-direction: column; max-width: 80%; }
+  .app-preview .msg-row.them { align-items: flex-start; align-self: flex-start; }
+  .app-preview .msg-row.me { align-items: flex-end; align-self: flex-end; }
+  .app-preview .msg-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+  .app-preview .msg-avatar { width: 20px; height: 20px; font-size: 10px; }
+  .app-preview .msg-sender { font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #777; }
+  .app-preview .msg-bubble { padding: 9px 12px; font-size: 13px; font-weight: 500; line-height: 1.4; }
+  .app-preview .msg-row.them .msg-bubble { background: #f0f0f0; color: #111; }
+  .app-preview .msg-row.me .msg-bubble { background: var(--ink); color: #fff; }
+
+  .app-preview .composer { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 1px solid var(--rule); }
+  .app-preview .composer .placeholder { font-size: 13px; color: #999; }
+  .app-preview .composer .sendbtn { font-size: 11px; font-weight: 700; letter-spacing: var(--track-tight); color: var(--red); }
+
   /* ---------- section scaffolding ---------- */
 
   section { padding: clamp(56px, 9vw, 104px) 0; }
@@ -693,7 +710,7 @@
 
 <header class="topbar">
   <div class="wrap topbar-inner">
-    <a class="wordmark" href="#top"><img class="logo-mark" src="assets/logo.png" alt="" />Outrider</a>
+    <a class="wordmark" href="#top"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
     <a class="topbar-link" href="#plans">Pricing</a>
   </div>
 </header>
@@ -753,8 +770,8 @@
               <p><strong>Set alert on.</strong> You'll be notified 20 min before set time.</p>
             </div>
             <div class="tabbar">
-              <div class="on"><span>&#9632;</span>Today</div>
-              <div><span>&#9679;</span>Tour</div>
+              <div class="on"><span>&#9632;</span>Home</div>
+              <div><span>&#9679;</span>Shows</div>
               <div><span>&#9834;</span>Setlist</div>
               <div><span>&#9638;</span>Stage</div>
               <div><span>&#8801;</span>More</div>
@@ -798,8 +815,8 @@
             </div>
             <div class="addrow">+ Add song from library</div>
             <div class="tabbar">
-              <div><span>&#9632;</span>Today</div>
-              <div><span>&#9679;</span>Tour</div>
+              <div><span>&#9632;</span>Home</div>
+              <div><span>&#9679;</span>Shows</div>
               <div class="on"><span>&#9834;</span>Setlist</div>
               <div><span>&#9638;</span>Stage</div>
               <div><span>&#8801;</span>More</div>
@@ -811,7 +828,7 @@
         <div class="showcase-col">
           <div class="phone">
             <div class="appbar">
-              <div class="crumb">Active tour</div>
+              <div class="crumb">Active shows</div>
               <div class="btitle">Northeast Run</div>
               <div class="sub">Jul 6 &ndash; Jul 18 &middot; 9 shows</div>
             </div>
@@ -844,8 +861,8 @@
               </div>
             </div>
             <div class="tabbar">
-              <div><span>&#9632;</span>Today</div>
-              <div class="on"><span>&#9679;</span>Tour</div>
+              <div><span>&#9632;</span>Home</div>
+              <div class="on"><span>&#9679;</span>Shows</div>
               <div><span>&#9834;</span>Setlist</div>
               <div><span>&#9638;</span>Stage</div>
               <div><span>&#8801;</span>More</div>
@@ -878,14 +895,54 @@
               </div>
             </div>
             <div class="tabbar">
-              <div><span>&#9632;</span>Today</div>
-              <div><span>&#9679;</span>Tour</div>
+              <div><span>&#9632;</span>Home</div>
+              <div><span>&#9679;</span>Shows</div>
               <div><span>&#9834;</span>Setlist</div>
               <div class="on"><span>&#9638;</span>Stage</div>
               <div><span>&#8801;</span>More</div>
             </div>
           </div>
           <p class="showcase-caption">Every input, plotted before you get there &mdash; color-coded by instrument, so front-of-house reads it in one glance.</p>
+        </div>
+
+        <div class="showcase-col">
+          <div class="phone">
+            <div class="appbar">
+              <div class="crumb">Northeast Run &middot; Jul 9</div>
+              <div class="btitle">Crew Chat</div>
+              <div class="sub">5 members</div>
+            </div>
+            <div class="sectionbar">Group chat</div>
+            <div class="chatlist">
+              <div class="sysmsg">Load-in moved to 3:00P &mdash; The Chance Theater</div>
+              <div class="msg-row them">
+                <div class="msg-meta"><span class="disc msg-avatar" style="background:var(--blue)">M</span><span class="msg-sender">Marcus &middot; FOH</span></div>
+                <div class="msg-bubble">Confirmed inputs with house engineer &mdash; stage plot's set.</div>
+              </div>
+              <div class="msg-row me">
+                <div class="msg-bubble">Anyone hear from the opener about soundcheck?</div>
+              </div>
+              <div class="msg-row them">
+                <div class="msg-meta"><span class="disc msg-avatar" style="background:var(--green)">D</span><span class="msg-sender">Dana R &middot; Venue</span></div>
+                <div class="msg-bubble">Green room's upstairs tonight, elevator's around back.</div>
+              </div>
+              <div class="msg-row me">
+                <div class="msg-bubble">Got it &mdash; thanks Dana.</div>
+              </div>
+            </div>
+            <div class="composer">
+              <span class="placeholder">Message the crew&hellip;</span>
+              <span class="sendbtn">Send</span>
+            </div>
+            <div class="tabbar">
+              <div><span>&#9632;</span>Home</div>
+              <div><span>&#9679;</span>Shows</div>
+              <div><span>&#9834;</span>Setlist</div>
+              <div><span>&#9638;</span>Stage</div>
+              <div class="on"><span>&#8801;</span>More</div>
+            </div>
+          </div>
+          <p class="showcase-caption">One thread per tour &mdash; crew, venue contacts, and automatic show-change alerts, all in the same place.</p>
         </div>
       </div>
     </div>
@@ -947,7 +1004,7 @@
           <div class="plan-price">$0</div>
           <div class="plan-cycle">forever</div>
           <ul class="plan-list">
-            <li>1 tour</li>
+            <li>1 run</li>
             <li>2 organization members</li>
             <li>Full feature set, no time limit</li>
           </ul>
@@ -958,7 +1015,7 @@
           <div class="plan-price">$8<sup>.99</sup></div>
           <div class="plan-cycle">per month</div>
           <ul class="plan-list">
-            <li>Unlimited tours</li>
+            <li>Unlimited runs</li>
             <li>Unlimited members</li>
             <li>14-day free trial, cancel anytime</li>
           </ul>
@@ -969,7 +1026,7 @@
           <div class="plan-price">$89<sup>.99</sup></div>
           <div class="plan-cycle">per year — 2 months free</div>
           <ul class="plan-list">
-            <li>Unlimited tours</li>
+            <li>Unlimited runs</li>
             <li>Unlimited members</li>
             <li>14-day free trial, cancel anytime</li>
           </ul>
@@ -984,7 +1041,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <a class="wordmark" href="#top"><img class="logo-mark" src="assets/logo.png" alt="" />Outrider</a>
+        <a class="wordmark" href="#top"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
         <p class="footer-tag">Tour management for touring bands and crew. iOS and Android, built for the road.</p>
       </div>
       <div class="footer-links">
