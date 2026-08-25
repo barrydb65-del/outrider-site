@@ -245,6 +245,20 @@
     align-items: flex-start;
   }
 
+  .hero-ios-notify {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+  }
+
+  .hero-ios-label {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.82rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 12px;
+  }
+
   /* ---------- buttons + form ---------- */
 
   .btn {
@@ -750,15 +764,19 @@
         <p class="hero-lede">The music is the easy part.</p>
         <p class="hero-sub">It's everything before the stage lights go on that's chaos.<br>Load-in. Set times. Hotels. Guest lists. Stage plots.<br>One place. One app.<br>One less thing to worry about.</p>
         <div class="hero-actions">
-          <form class="form" id="waitlist-form" action="https://formspree.io/f/xkodadbn" method="POST">
-            <input type="hidden" name="_subject" value="New Outrider waitlist signup" />
-            <label for="waitlist-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
-            <input id="waitlist-email" name="email" type="email" placeholder="you@yourband.com" required="required" />
-            <button type="submit" class="btn btn-primary">Notify me</button>
-          </form>
+          <a class="btn btn-primary" href="https://app.outriderapp.com">Try it now</a>
           <a class="btn btn-ghost" href="#plans">See plans</a>
         </div>
-        <p class="form-note" id="waitlist-note">No spam. One email when we launch.</p>
+        <div class="hero-ios-notify">
+          <p class="hero-ios-label">On iPhone and holding out for the App Store version?</p>
+          <form class="form" id="waitlist-form" action="https://formspree.io/f/xkodadbn" method="POST">
+            <input type="hidden" name="_subject" value="New Outrider iOS notify signup" />
+            <label for="waitlist-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
+            <input id="waitlist-email" name="email" type="email" placeholder="you@yourband.com" required="required" />
+            <button type="submit" class="btn btn-ghost">Notify me</button>
+          </form>
+          <p class="form-note" id="waitlist-note">No spam. One email when iOS launches.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1121,7 +1139,7 @@
         headers: { "Accept": "application/json" }
       }).then(function (response) {
         if (response.ok) {
-          note.textContent = "You're on the list — we'll email you at launch.";
+          note.textContent = "You're on the list — we'll email you when iOS launches.";
           note.classList.add("confirmed");
           button.textContent = "On the list";
           input.disabled = true;
