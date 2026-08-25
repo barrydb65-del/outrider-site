@@ -113,6 +113,12 @@
     height: 38px;
   }
 
+  .topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
   .topbar-link {
     color: var(--white);
     text-decoration: none;
@@ -141,6 +147,11 @@
     letter-spacing: var(--track-tight);
     text-align: center;
     padding: 14px 16px;
+  }
+
+  .status-strip a {
+    color: inherit;
+    text-decoration: underline;
   }
 
   /* ---------- hero ---------- */
@@ -716,12 +727,15 @@
 </head>
 <body>
 
-<div class="status-strip">Load-in in progress — Outrider launches soon. Join the list for early access.</div>
+<div class="status-strip">The web app is live — <a href="https://app.outriderapp.com">try it now</a>. iOS is in App Store review.</div>
 
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="wordmark" href="#top"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
-    <a class="topbar-link" href="#plans">Pricing</a>
+    <div class="topbar-links">
+      <a class="topbar-link" href="#plans">Pricing</a>
+      <a class="topbar-link" href="https://app.outriderapp.com">Log In</a>
+    </div>
   </div>
 </header>
 
@@ -1019,7 +1033,7 @@
             <li>2 organization members</li>
             <li>Full feature set, no time limit</li>
           </ul>
-          <a class="btn" href="#top">Start free</a>
+          <a class="btn" href="https://app.outriderapp.com">Start free</a>
         </div>
         <div class="plan featured">
           <div class="plan-head"><span>Short Run</span></div>
@@ -1030,7 +1044,7 @@
             <li>Unlimited members</li>
             <li>14-day free trial, cancel anytime</li>
           </ul>
-          <a class="btn" href="#top">Start 14-day trial</a>
+          <a class="btn" href="https://app.outriderapp.com">Start 14-day trial</a>
         </div>
         <div class="plan">
           <div class="plan-head"><span>Long Haul</span></div>
@@ -1041,7 +1055,7 @@
             <li>Unlimited members</li>
             <li>14-day free trial, cancel anytime</li>
           </ul>
-          <a class="btn" href="#top">Start 14-day trial</a>
+          <a class="btn" href="https://app.outriderapp.com">Start 14-day trial</a>
         </div>
       </div>
     </div>
