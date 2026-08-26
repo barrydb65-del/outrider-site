@@ -614,6 +614,14 @@
     letter-spacing: var(--track-tight);
   }
 
+  .stop h3 a {
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+  }
+
+  .stop h3 a:hover { text-decoration-color: currentColor; }
+
   .stop p {
     color: #5a5c5e;
     font-size: 0.85rem;
@@ -1067,7 +1075,7 @@
         <div class="stops">
           <div class="stop" style="--dot: var(--blue); --d: 0.05s;">
             <div class="stop-disc"></div>
-            <h3>Today</h3>
+            <h3><a href="/day-sheet-template">Today</a></h3>
             <p>The day's load-in, soundcheck, and set times in one glance, for everyone on the tour.</p>
           </div>
           <div class="stop" style="--dot: var(--red); --d: 0.15s;">
@@ -1077,7 +1085,7 @@
           </div>
           <div class="stop" style="--dot: var(--green); --d: 0.25s;">
             <div class="stop-disc"></div>
-            <h3>Stage plots</h3>
+            <h3><a href="/stage-plot-maker">Stage plots</a></h3>
             <p>Drag-and-drop equipment layouts your crew and the house can both read.</p>
           </div>
           <div class="stop" style="--dot: var(--orange); --d: 0.35s;">
@@ -1087,7 +1095,7 @@
           </div>
           <div class="stop" style="--dot: var(--purple); --d: 0.45s;">
             <div class="stop-disc"></div>
-            <h3>Tech/Hospitality riders</h3>
+            <h3><a href="/tech-rider-template">Tech/Hospitality riders</a></h3>
             <p>Your specs, written once, attached to every show automatically.</p>
           </div>
           <div class="stop" style="--dot: var(--yellow); --d: 0.55s;">
