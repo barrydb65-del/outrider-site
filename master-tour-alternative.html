@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Looking for a Master Tour alternative? Outrider is tour management built and priced for bands making a go of it on their own — from $8.99/month, no sales call required.">
+<title>Outrider vs. Master Tour — A Tour Management Alternative for DIY Bands</title>
+<link rel="canonical" href="https://www.outriderapp.com/master-tour-alternative">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="alternate icon" href="assets/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Outrider">
+<meta property="og:title" content="Outrider vs. Master Tour — A Tour Management Alternative for DIY Bands">
+<meta property="og:description" content="Master Tour is built for professional touring operations. Outrider is built and priced for bands making a go of it on their own — from $8.99/month.">
+<meta property="og:url" content="https://www.outriderapp.com/master-tour-alternative">
+<meta property="og:image" content="https://www.outriderapp.com/assets/hero.jpg">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Outrider vs. Master Tour — A Tour Management Alternative for DIY Bands">
+<meta name="twitter:description" content="Master Tour is built for professional touring operations. Outrider is built and priced for bands making a go of it on their own — from $8.99/month.">
+<meta name="twitter:image" content="https://www.outriderapp.com/assets/hero.jpg">
+
+<style>
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ee352e;
+    --gray: #a7a9ac;
+    --rule: #d8d8d8;
+    --font-display: "Outrider Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --track-tight: -0.01em;
+    --track-tighter: -0.02em;
+    --track-tightest: -0.035em;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { min-width: 320px; }
+
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  /* ---------- topbar ---------- */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+    transform: translateY(-1px);
+  }
+
+  footer .logo-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    border: 2px solid var(--white);
+    padding: 7px 14px;
+  }
+
+  .topbar-link:focus-visible,
+  .btn:focus-visible {
+    outline: 3px solid #fccc0a;
+    outline-offset: 2px;
+  }
+
+  /* ---------- page head ---------- */
+
+  .page-head {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(28px, 5vw, 40px);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  .page-head h1 {
+    font-weight: 900;
+    font-size: clamp(2.1rem, 5.5vw, 3.6rem);
+    letter-spacing: var(--track-tightest);
+    line-height: 1.03;
+    max-width: 18ch;
+  }
+
+  .page-lede {
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.4;
+    max-width: 46ch;
+    margin-top: 18px;
+    letter-spacing: var(--track-tight);
+  }
+
+  /* ---------- body ---------- */
+
+  .body-section {
+    max-width: 720px;
+    padding: clamp(40px, 7vw, 64px) 0;
+  }
+
+  .body-section p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .quote-block {
+    border-left: 3px solid var(--red);
+    padding: 4px 0 4px 20px;
+    margin: 28px 0;
+  }
+
+  .quote-block p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .quote-attr {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #5a5c5e;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  /* ---------- comparison table ---------- */
+
+  .compare-wrap {
+    padding: 0 0 clamp(48px, 8vw, 72px);
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--black);
+  }
+
+  .compare-table th,
+  .compare-table td {
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+    letter-spacing: var(--track-tight);
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .compare-table th {
+    font-weight: 900;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: var(--track-tight);
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .compare-table td:first-child {
+    font-weight: 700;
+    color: var(--black);
+    width: 30%;
+  }
+
+  .compare-table td:nth-child(2) { color: #333; }
+
+  .compare-table td:nth-child(3) {
+    color: #333;
+    border-left: 1px solid var(--rule);
+  }
+
+  .compare-scroll {
+    overflow-x: auto;
+  }
+
+  @media (max-width: 640px) {
+    .compare-table { min-width: 560px; }
+  }
+
+  /* ---------- cta band ---------- */
+
+  .cta-band {
+    background: var(--black);
+    color: var(--white);
+    padding: clamp(40px, 7vw, 64px) 0;
+  }
+
+  .cta-band h2 {
+    font-weight: 900;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    letter-spacing: var(--track-tighter);
+    max-width: 20ch;
+  }
+
+  .cta-band p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-top: 12px;
+    max-width: 44ch;
+    letter-spacing: var(--track-tight);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .btn {
+    appearance: none;
+    border: 3px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: var(--track-tight);
+    text-decoration: none;
+    padding: 13px 24px;
+    cursor: pointer;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: #d02922; border-color: #d02922; }
+  .btn-ghost:hover { background: var(--white); color: var(--black); }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+  }
+
+  .footer-tag {
+    color: var(--gray);
+    font-size: 0.85rem;
+    max-width: 34ch;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    color: var(--gray);
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    color: #6b6d6f;
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  @media (max-width: 520px) {
+    .body-section p { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
+    <div class="topbar-links">
+      <a class="topbar-link" href="/#plans">Pricing</a>
+      <a class="topbar-link" href="https://app.outriderapp.com">Log In</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Comparison</p>
+      <h1>Outrider vs. Master Tour</h1>
+      <p class="page-lede">Master Tour is the standard for professional touring operations. Outrider is built for the bands still doing it themselves.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="body-section">
+      <p>If you're searching for a Master Tour alternative, chances are you already know Master Tour is excellent — it's the industry standard for a reason. It's also built and priced for professional tour managers, agencies, and established productions with the budget and headcount to match.</p>
+      <p>Most touring bands aren't that. Most are a handful of people juggling load-in times, hotel confirmations, and a setlist that changes the morning of the show — with no tour manager, no travel agency, and no appetite for an enterprise sales call.</p>
+
+      <div class="quote-block">
+        <p>"It's built (and fairly priced) for bands that are out there making a go of it on their own."</p>
+        <span class="quote-attr">— Dave Barry, Outrider founder, on why he built it</span>
+      </div>
+
+      <p>That's the whole difference. Outrider isn't trying to out-feature Master Tour for professional touring operations — it's solving a problem Master Tour was never priced or designed to solve: everyday touring for bands running things themselves.</p>
+    </article>
+  </div>
+
+  <div class="wrap compare-wrap">
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Outrider</th>
+            <th>Master Tour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Built for</td>
+            <td>Small and mid-size DIY bands running their own tours</td>
+            <td>Professional tour managers and established touring productions</td>
+          </tr>
+          <tr>
+            <td>Pricing</td>
+            <td>Free to start; $8.99/month or $89.99/year for unlimited runs and members</td>
+            <td>Reported around $65–75/month per the pricing musicians have shared publicly</td>
+          </tr>
+          <tr>
+            <td>Getting started</td>
+            <td>Self-serve — sign up and you're in, on the web or iPhone</td>
+            <td>Typically set up through a sales conversation</td>
+          </tr>
+          <tr>
+            <td>Who uses it day to day</td>
+            <td>The whole band and crew, together</td>
+            <td>Primarily the tour manager, distributing info to the rest of the team</td>
+          </tr>
+          <tr>
+            <td>Core tools</td>
+            <td>Day sheets, setlists, stage plots, guest lists, tech/hospitality riders, group chat</td>
+            <td>Full advancing workflow, routing, crew and vendor logistics at scale</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2>Not trying to replace Master Tour. Just trying to beat five different group texts.</h2>
+      <p>If you've already got a tour manager and an agency handling advancing, Master Tour is probably right for you. If you're doing it yourself, Outrider is built for exactly that.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://app.outriderapp.com">Try it now</a>
+        <a class="btn btn-ghost" href="/#plans">See plans</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
+        <p class="footer-tag">Band, Show, and Tour management for the working Musician. iOS and web, built for the road.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Dave Barry. All rights reserved.</span>
+      <span>Outrider is in development — features and pricing subject to change before launch.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
