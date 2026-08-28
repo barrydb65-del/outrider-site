@@ -66,6 +66,78 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Outrider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A tour management app built for working musicians — day sheets, setlists, stage plots, guest lists, tech and hospitality riders, and a group chat that knows what show you're talking about. One app, one org, everyone on the same page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be on a real tour to use it, or does it work for one-off shows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Either. One-off show or a multi-city run, the tools work the same — set up a run, add your shows, and go."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the free plan include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Everything — the full feature set, no watered-down version. Free covers one run to try it for real; paid plans remove the run and member caps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial on paid plans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — 14 days, cancel anytime before it ends and you won't be charged. A payment method is required up front, which is standard for subscriptions, but nothing is charged during the trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Outrider available on iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The iPhone app is in App Store review now. The web app is fully live today — sign up, use it on any device, and your account carries over the moment iOS launches. Nothing to re-enter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Planned, no firm date yet. iOS first, Android's on the will-call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who can see our tour's information?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only the people you add to your org — bandmates, crew, whoever you invite. Nobody else sees your dates, riders, or guest lists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Outrider different from Master Tour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Outrider is built and priced for bands doing this on their own, rather than for teams with a dedicated tour manager. Full comparison at outriderapp.com/master-tour-alternative."
+      }
+    }
+  ]
+}
+</script>
 <style>
   @font-face {
     font-family: "Outrider Grotesk";
@@ -741,6 +813,58 @@
 
   .plan.featured .btn:hover { background: #d02922; border-color: #d02922; }
 
+  /* ---------- faq ---------- */
+
+  .faq-list {
+    margin-top: 40px;
+    border-top: 3px solid var(--black);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--red);
+    flex: none;
+    line-height: 1;
+  }
+
+  .faq-item[open] summary::after { content: "\2212"; }
+
+  .faq-item p {
+    color: #5a5c5e;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    letter-spacing: var(--track-tight);
+    max-width: 62ch;
+    padding-bottom: 24px;
+  }
+
+  .faq-item p a {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   /* ---------- footer ---------- */
 
   footer {
@@ -1150,6 +1274,48 @@
           </ul>
           <a class="btn" href="https://app.outriderapp.com">Start 14-day trial</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head"><span>FAQ</span></div>
+      <h2 class="section-title">Questions, answered straight.</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is Outrider?</summary>
+          <p>A tour management app built for working musicians &mdash; day sheets, setlists, stage plots, guest lists, tech and hospitality riders, and a group chat that knows what show you're talking about. One app, one org, everyone on the same page.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to be on a real tour to use it, or does it work for one-off shows?</summary>
+          <p>Either. One-off show or a multi-city run, the tools work the same &mdash; set up a run, add your shows, and go.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does the free plan include?</summary>
+          <p>Everything &mdash; the full feature set, no watered-down version. Free covers one run to try it for real; paid plans remove the run and member caps.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a free trial on paid plans?</summary>
+          <p>Yes &mdash; 14 days, cancel anytime before it ends and you won't be charged. A payment method is required up front, which is standard for subscriptions, but nothing is charged during the trial.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is Outrider available on iPhone?</summary>
+          <p>The iPhone app is in App Store review now. The web app is fully live today &mdash; sign up, use it on any device, and your account carries over the moment iOS launches. Nothing to re-enter.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What about Android?</summary>
+          <p>Planned, no firm date yet. iOS first, Android's on the will-call.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who can see our tour's information?</summary>
+          <p>Only the people you add to your org &mdash; bandmates, crew, whoever you invite. Nobody else sees your dates, riders, or guest lists.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is Outrider different from Master Tour?</summary>
+          <p>Built and priced for bands doing this on their own, rather than for teams with a dedicated tour manager. <a href="/master-tour-alternative">Full comparison here.</a></p>
+        </details>
       </div>
     </div>
   </section>
