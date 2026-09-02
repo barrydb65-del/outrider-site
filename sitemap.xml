@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.outriderapp.com/tour-management</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.outriderapp.com/master-tour-alternative</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
