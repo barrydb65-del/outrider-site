@@ -108,7 +108,7 @@
       "name": "Is Outrider available on iPhone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The iPhone app is in App Store review now. The web app is fully live today - sign up, use it on any device, and your account carries over the moment iOS launches. Nothing to re-enter."
+        "text": "Yes - Outrider is live on the App Store. The web app works on any device too, and your account carries over between them. Nothing to re-enter."
       }
     },
     {
@@ -958,7 +958,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
 </head>
 <body>
 
-<div class="status-strip">The web app is live - <a href="https://app.outriderapp.com">try it now</a>. iOS is in App Store review.</div>
+<div class="status-strip">Outrider is live on the web and iOS - <a href="https://app.outriderapp.com">try it now</a> or <a href="https://apps.apple.com/app/id6801227604">get the iOS app</a>.</div>
 
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -985,14 +985,10 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
           <a class="btn btn-ghost" href="#plans">See plans</a>
         </div>
         <div class="hero-ios-notify">
-          <p class="hero-ios-label">On iPhone and holding out for the App Store version?</p>
-          <form class="form" id="waitlist-form" action="https://formspree.io/f/xkodadbn" method="POST">
-            <input type="hidden" name="_subject" value="New Outrider iOS notify signup" />
-            <label for="waitlist-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
-            <input id="waitlist-email" name="email" type="email" placeholder="you@yourband.com" required="required" />
-            <button type="submit" class="btn btn-ghost">Notify me</button>
-          </form>
-          <p class="form-note" id="waitlist-note">No spam. One email when iOS launches.</p>
+          <p class="hero-ios-label">Now available on iPhone</p>
+          <a href="https://apps.apple.com/app/id6801227604" aria-label="Download Outrider on the App Store">
+            <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" height="48" />
+          </a>
         </div>
       </div>
     </div>
@@ -1378,41 +1374,6 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
     io.observe(rail);
   })();
 
-  (function () {
-    var form = document.getElementById("waitlist-form");
-    var note = document.getElementById("waitlist-note");
-    var button = form.querySelector("button");
-    var input = form.querySelector("input");
-    var defaultNote = note.textContent;
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      button.disabled = true;
-      button.textContent = "Sending…";
-      note.classList.remove("confirmed", "error");
-      note.textContent = defaultNote;
-
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      }).then(function (response) {
-        if (response.ok) {
-          note.textContent = "You're on the list - we'll email you when iOS launches.";
-          note.classList.add("confirmed");
-          button.textContent = "On the list";
-          input.disabled = true;
-        } else {
-          throw new Error("Submission failed");
-        }
-      }).catch(function () {
-        note.textContent = "Something went wrong - try again in a moment.";
-        note.classList.add("error");
-        button.disabled = false;
-        button.textContent = "Notify me";
-      });
-    });
-  })();
 </script>
 </body>
 </html>
