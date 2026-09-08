@@ -710,6 +710,62 @@
     background: #f4f4f4;
   }
 
+  /* ---------- workflow (web + iOS) ---------- */
+
+  .workflow {
+    background: #f4f4f4;
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .workflow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workflow-disc {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid var(--black);
+    margin-bottom: 16px;
+    flex: none;
+  }
+
+  .workflow-col h3 {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  .workflow-col p {
+    color: #5a5c5e;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-top: 8px;
+    letter-spacing: var(--track-tight);
+    max-width: 34ch;
+  }
+
+  .workflow-arrow {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--black);
+    opacity: 0.35;
+  }
+
+  @media (max-width: 700px) {
+    .workflow-grid { grid-template-columns: 1fr; gap: 28px; }
+    .workflow-arrow { transform: rotate(90deg); }
+  }
+
   .plans {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1199,6 +1255,28 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
             </div>
           </div>
           <p class="showcase-caption">One thread per tour - crew, venue contacts, and automatic show-change alerts, all in the same place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workflow">
+    <div class="wrap">
+      <div class="section-head"><span>Both, Together</span></div>
+      <h2 class="section-title">Build it on the laptop. Run it from your pocket.</h2>
+      <p class="section-sub">Not required - Outrider works fine on just one. But run both and they cover each other: the laptop does the heavy lifting before doors, the phone keeps you honest once they open. Same account - nothing typed twice.</p>
+
+      <div class="workflow-grid">
+        <div class="workflow-col">
+          <span class="workflow-disc" style="background:var(--blue)"></span>
+          <h3>Web, whenever there's a keyboard</h3>
+          <p>Enter the whole run - shows, riders, guest lists, stage plots. Faster than thumbing it in, whether that's before you leave or backstage between sets.</p>
+        </div>
+        <div class="workflow-arrow">&#8594;</div>
+        <div class="workflow-col">
+          <span class="workflow-disc" style="background:var(--purple)"></span>
+          <h3>iPhone, on the road</h3>
+          <p>Same tour, synced automatically. At the venue, just check today's day sheet, setlist, or stage plot.</p>
         </div>
       </div>
     </div>
