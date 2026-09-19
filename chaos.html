@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Six questions. No signup. Find out what kind of chaos your band is running on.">
+<title>The Band Chaos Audit | Outrider</title>
+<link rel="canonical" href="https://www.outriderapp.com/chaos">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="alternate icon" href="assets/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Outrider">
+<meta property="og:title" content="The Band Chaos Audit">
+<meta property="og:description" content="Six questions. No signup. Find out what kind of chaos your band is running on.">
+<meta property="og:url" content="https://www.outriderapp.com/chaos">
+<meta property="og:image" content="https://www.outriderapp.com/assets/hero.jpg">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Band Chaos Audit">
+<meta name="twitter:description" content="Six questions. No signup. Find out what kind of chaos your band is running on.">
+<meta name="twitter:image" content="https://www.outriderapp.com/assets/hero.jpg">
+
+<style>
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ee352e;
+    --gray: #a7a9ac;
+    --rule: #d8d8d8;
+    --font-display: "Outrider Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --track-tight: -0.01em;
+    --track-tighter: -0.02em;
+    --track-tightest: -0.035em;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { min-width: 320px; }
+
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+    transform: translateY(-1px);
+  }
+
+  footer .logo-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    border: 2px solid var(--white);
+    padding: 7px 14px;
+  }
+
+  .topbar-link:focus-visible,
+  .btn:focus-visible {
+    outline: 3px solid #fccc0a;
+    outline-offset: 2px;
+  }
+
+  .page-head {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(28px, 5vw, 40px);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  .page-head h1 {
+    font-weight: 900;
+    font-size: clamp(2.1rem, 5.5vw, 3.6rem);
+    letter-spacing: var(--track-tightest);
+    line-height: 1.03;
+    max-width: 18ch;
+  }
+
+  .page-lede {
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.4;
+    max-width: 46ch;
+    margin-top: 18px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .body-section {
+    max-width: 720px;
+    padding: clamp(40px, 7vw, 64px) 0;
+  }
+
+  .body-section p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .body-section h2 {
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    margin-top: 40px;
+    margin-bottom: 14px;
+  }
+
+  .body-section h2:first-child { margin-top: 0; }
+
+  .body-section ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-section li {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .body-section strong { color: var(--black); }
+
+  .feature-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 8px 0 12px;
+    padding: 24px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .feature-item h3 {
+    font-weight: 900;
+    font-size: 0.95rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 6px;
+  }
+
+  .feature-item p {
+    font-size: 0.9rem;
+    color: #5a5c5e;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .cta-band {
+    background: var(--black);
+    color: var(--white);
+    padding: clamp(40px, 7vw, 64px) 0;
+  }
+
+  .cta-band h2 {
+    font-weight: 900;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    letter-spacing: var(--track-tighter);
+    max-width: 22ch;
+  }
+
+  .cta-band p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-top: 12px;
+    max-width: 44ch;
+    letter-spacing: var(--track-tight);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .btn {
+    appearance: none;
+    border: 3px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: var(--track-tight);
+    text-decoration: none;
+    padding: 13px 24px;
+    cursor: pointer;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: #d02922; border-color: #d02922; }
+  .btn-ghost:hover { background: var(--white); color: var(--black); }
+
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+  }
+
+  .footer-tag {
+    color: var(--gray);
+    font-size: 0.85rem;
+    max-width: 34ch;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    color: var(--gray);
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    color: #6b6d6f;
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  @media (max-width: 520px) {
+    .body-section p, .body-section li { font-size: 0.95rem; }
+  }
+
+  /* ---------- chaos audit ---------- */
+  .audit { padding: clamp(40px, 7vw, 72px) 0 clamp(56px, 9vw, 96px); min-height: 70vh; }
+  .audit h1 {
+    font-weight: 900;
+    font-size: clamp(2.3rem, 6.4vw, 4.2rem);
+    letter-spacing: var(--track-tightest);
+    line-height: 1.02;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .audit .fine {
+    color: #5a5c5e;
+    font-size: 0.95rem;
+    letter-spacing: var(--track-tight);
+    margin: 14px 0 32px;
+  }
+  .audit .page-lede { margin-top: 20px; }
+  .audit [hidden] { display: none !important; }
+
+  .btn-solid { background: var(--black); border-color: var(--black); color: var(--white); }
+  .btn-solid:hover { background: var(--red); border-color: var(--red); }
+  .btn-outline { background: var(--white); border-color: var(--black); color: var(--black); }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+  .audit .btn-primary { color: var(--white); }
+  .audit .btn:focus-visible, .option:focus-visible, .link-btn:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 3px;
+  }
+
+  .stops { display: flex; gap: 6px; margin-bottom: 14px; max-width: 420px; }
+  .stops span { flex: 1; height: 6px; background: var(--rule); }
+  .stops span.on { background: var(--black); }
+  .q-count {
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    color: #5a5c5e;
+    margin-bottom: 22px;
+  }
+  .q-text {
+    font-weight: 900;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    letter-spacing: var(--track-tighter);
+    line-height: 1.08;
+    max-width: 24ch;
+    margin-bottom: 28px;
+    text-wrap: balance;
+  }
+  .options { max-width: 640px; }
+  .option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    appearance: none;
+    border: 3px solid var(--black);
+    border-radius: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: var(--track-tight);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.12s ease, color 0.12s ease;
+  }
+  .option:hover, .option:active { background: var(--black); color: var(--white); }
+  .link-btn {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin-top: 14px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: var(--track-tight);
+    color: #5a5c5e;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .link-btn:hover { color: var(--black); }
+
+  .notice {
+    display: block;
+    width: fit-content;
+    background: var(--black);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    padding: 8px 14px;
+    margin-bottom: 22px;
+  }
+  .r-line {
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    line-height: 1.35;
+    letter-spacing: var(--track-tight);
+    max-width: 30ch;
+    margin-top: 20px;
+  }
+  .r-extra {
+    white-space: pre-line;
+    color: #5a5c5e;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    letter-spacing: var(--track-tight);
+    max-width: 44ch;
+    margin-top: 10px;
+  }
+  .r-pitch {
+    border-top: 3px solid var(--black);
+    margin-top: 36px;
+    padding-top: 28px;
+    max-width: 52ch;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    letter-spacing: var(--track-tight);
+    color: #333;
+  }
+  .r-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1586562796155714');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
+    <div class="topbar-links">
+      <a class="topbar-link" href="/#plans">Pricing</a>
+      <a class="topbar-link" href="https://app.outriderapp.com">Log In</a>
+    </div>
+  </div>
+</header>
+
+<main class="audit">
+  <div class="wrap">
+
+    <section id="intro" aria-labelledby="intro-h">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Outrider</p>
+      <h1 id="intro-h">The Band Chaos Audit</h1>
+      <p class="page-lede">How organized is your band when nobody's looking?</p>
+      <p class="fine">6 questions. No signup.</p>
+      <button class="btn btn-solid" id="start" type="button">Start</button>
+    </section>
+
+    <section id="quiz" hidden aria-live="polite">
+      <div class="stops" id="stops" aria-hidden="true"></div>
+      <p class="q-count" id="q-count"></p>
+      <h2 class="q-text" id="q-text"></h2>
+      <div class="options" id="options"></div>
+      <button class="link-btn" id="back" type="button">Back</button>
+    </section>
+
+    <section id="result" hidden aria-live="polite">
+      <div id="shared-note" class="notice" hidden>Someone sent you their result. Find out what your band is.</div>
+      <p class="eyebrow"><span class="eyebrow-dot"></span><span id="r-eyebrow">Your band is</span></p>
+      <h1 id="r-name"></h1>
+      <p class="r-line" id="r-line"></p>
+      <p class="r-extra" id="r-extra"></p>
+      <p class="r-pitch" id="r-pitch"></p>
+      <div class="r-actions">
+        <a class="btn btn-primary" id="r-cta" href="https://app.outriderapp.com">Try Outrider free</a>
+        <button class="btn btn-outline" id="share" type="button">Send this to your band</button>
+      </div>
+      <button class="link-btn" id="again" type="button">Take it again</button>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
+        <p class="footer-tag">Band, Show, and Tour management for the working Musician. iOS and web, built for the road.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Dave Barry. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var QUESTIONS = [
+    { q: "Where does the master schedule live?", a: [
+      ["Google Calendar", "pro"], ["A spreadsheet", "secretary"], ["The group chat", "group"],
+      ["One person's phone", "secretary"], ["Multiple places", "group"], ["What master schedule?", "napkin"] ] },
+    { q: "Your stage plot is:", a: [
+      ["Current and in one place", "pro"], ["A PDF somewhere", "secretary"], ["An old PDF somewhere", "napkin"],
+      ["A screenshot", "group"], ["A drawing", "napkin"], ["A napkin", "napkin"] ] },
+    { q: "Your rider is:", a: [
+      ["Current and ready to go", "pro"], ["A PDF we're afraid to open", "secretary"],
+      ["Several versions floating around", "group"], ["We just tell the venue what we need", "napkin"] ] },
+    { q: "Setlist changes reach the band by:", a: [
+      ["One shared version", "pro"], ["Text message", "group"], ["Screenshot", "group"],
+      ["Someone yells it before the show", "napkin"], ["We just know the songs", "napkin"] ] },
+    { q: "The guest list is:", a: [
+      ["Centralized and current", "pro"], ["A spreadsheet", "secretary"], ["Text messages", "group"],
+      ["Someone has \u201Cthe list\u201D", "secretary"], ["There is no list. There are only guests.", "napkin"] ] },
+    { q: "Someone texts \u201CWhat time is load-in?\u201D You:", a: [
+      ["Say \u201CIt's in Outrider.\u201D", "pro"], ["Say \u201CCheck the group chat.\u201D", "group"],
+      ["Say \u201CHang on, I'll find it.\u201D", "secretary"], ["Say \u201CAsk whoever booked it.\u201D", "napkin"] ] }
+  ];
+
+  var TYPES = {
+    group: { name: "The Group-Chat Band", line: "Your database is a thread.",
+      extra: "Everything is written down somewhere.\nNobody can find it." },
+    secretary: { name: "The One-Person Band", line: "One person knows everything. Everyone else knows that person.",
+      extra: "It works right up until they're out sick." },
+    napkin: { name: "The Napkin Band", line: "The information exists. Its location is theoretical.",
+      extra: "It's probably on the back of a flyer." },
+    pro: { name: "The Professionals", line: "You have this handled. Outrider just keeps it that way.",
+      extra: "That's rarer than it should be." }
+  };
+  var PITCH_DEFAULT = "Your band has the information. It's just spread across too many places. Outrider puts shows, schedules, setlists, stage plots, riders and guest lists in one place. Free to start.";
+  var PITCH_PRO = "Your band has this handled. Outrider keeps it all in one place as the calendar fills up. Free to start.";
+  var BASE = "https://www.outriderapp.com/chaos";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var intro = $("intro"), quiz = $("quiz"), result = $("result");
+  var step = 0, picks = [];
+
+  function show(el) { [intro, quiz, result].forEach(function (s) { s.hidden = (s !== el); }); window.scrollTo(0, 0); }
+
+  function renderQuestion() {
+    var item = QUESTIONS[step];
+    var stops = $("stops");
+    stops.innerHTML = "";
+    QUESTIONS.forEach(function (_, i) {
+      var s = document.createElement("span");
+      if (i <= step) s.className = "on";
+      stops.appendChild(s);
+    });
+    $("q-count").textContent = "Question " + (step + 1) + " of " + QUESTIONS.length;
+    $("q-text").textContent = item.q;
+    var box = $("options");
+    box.innerHTML = "";
+    item.a.forEach(function (opt, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "option";
+      b.textContent = opt[0];
+      b.addEventListener("click", function () { picks[step] = opt[1]; next(); });
+      box.appendChild(b);
+    });
+    $("back").hidden = step === 0;
+  }
+
+  function next() {
+    if (step < QUESTIONS.length - 1) { step++; renderQuestion(); }
+    else { showResult(compute(), false); }
+  }
+
+  function compute() {
+    var c = { group: 0, secretary: 0, napkin: 0, pro: 0 };
+    picks.forEach(function (p) { c[p]++; });
+    if (c.pro >= 4) return "pro";
+    var order = ["napkin", "group", "secretary"], best = order[0];
+    order.forEach(function (k) { if (c[k] > c[best]) best = k; });
+    return best;
+  }
+
+  function showResult(key, shared) {
+    var t = TYPES[key];
+    $("r-name").innerHTML = t.name.replace(/(\S+-\S+)/, '<span style="white-space:nowrap">$1</span>');
+    $("r-line").textContent = t.line;
+    $("r-extra").textContent = t.extra;
+    $("r-pitch").textContent = key === "pro" ? PITCH_PRO : PITCH_DEFAULT;
+    $("shared-note").hidden = !shared;
+    $("r-eyebrow").textContent = shared ? "Their band is" : "Your band is";
+    $("share").hidden = shared;
+    $("again").textContent = shared ? "Take the audit" : "Take it again";
+    result.dataset.type = key;
+    try { history.replaceState(null, "", "?type=" + key); } catch (e) {}
+    show(result);
+  }
+
+  function restart() {
+    step = 0; picks = [];
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+    renderQuestion();
+    show(quiz);
+  }
+
+  $("start").addEventListener("click", restart);
+  $("again").addEventListener("click", restart);
+  $("back").addEventListener("click", function () { if (step > 0) { step--; renderQuestion(); } });
+
+  $("share").addEventListener("click", function () {
+    var key = result.dataset.type;
+    var url = BASE + "?type=" + key;
+    var text = "Our band is " + TYPES[key].name + ". " + TYPES[key].line + " What's yours?";
+    var btn = $("share");
+    if (navigator.share) {
+      navigator.share({ title: "The Band Chaos Audit", text: text, url: url }).catch(function () {});
+      return;
+    }
+    var done = function () { btn.textContent = "Link copied"; setTimeout(function () { btn.textContent = "Send this to your band"; }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text + " " + url).then(done, function () { window.prompt("Copy this link:", url); });
+    } else { window.prompt("Copy this link:", url); }
+  });
+
+  var m = /[?&]type=(group|secretary|napkin|pro)\b/.exec(location.search);
+  if (m) showResult(m[1], true);
+})();
+</script>
+</body>
+</html>
