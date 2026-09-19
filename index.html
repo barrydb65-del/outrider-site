@@ -710,6 +710,37 @@
     background: #f4f4f4;
   }
 
+  /* ---------- chaos audit band ---------- */
+
+  .audit-band {
+    background: var(--black);
+    color: var(--white);
+    padding: clamp(36px, 6vw, 56px) 0;
+  }
+
+  .audit-band-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px 40px;
+    flex-wrap: wrap;
+  }
+
+  .audit-band h2 {
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+    letter-spacing: var(--track-tighter);
+  }
+
+  .audit-band p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-top: 8px;
+    line-height: 1.5;
+    letter-spacing: var(--track-tight);
+    max-width: 44ch;
+  }
+
   /* ---------- workflow (web + iOS) ---------- */
 
   .workflow {
@@ -1323,6 +1354,16 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="audit-band">
+    <div class="wrap audit-band-inner">
+      <div>
+        <h2>The Band Chaos Audit</h2>
+        <p>How organized is your band when nobody's looking? 6&nbsp;questions. No&nbsp;signup.</p>
+      </div>
+      <a class="btn btn-ghost" href="/chaos">Take the audit</a>
     </div>
   </section>
 
