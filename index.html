@@ -186,6 +186,7 @@
     --black: #111111;
     --white: #ffffff;
     --red: #ee352e;
+    --red-ink: #d42a24;
     --gray: #a7a9ac;
     --blue: #0039a6;
     --green: #00933c;
@@ -299,7 +300,7 @@
   /* ---------- status strip ---------- */
 
   .status-strip {
-    background: var(--red);
+    background: var(--red-ink);
     color: var(--white);
     font-weight: 800;
     font-size: 0.98rem;
@@ -440,12 +441,12 @@
   }
 
   .btn-primary {
-    background: var(--red);
-    border-color: var(--red);
+    background: var(--red-ink);
+    border-color: var(--red-ink);
     color: var(--white);
   }
 
-  .btn-primary:hover { background: #d02922; border-color: #d02922; }
+  .btn-primary:hover { background: #b8231e; border-color: #b8231e; }
   .btn-ghost:hover { background: var(--white); color: var(--black); }
 
   .form {
@@ -528,7 +529,7 @@
   .app-preview .appbar .sub { font-size: 13px; font-weight: 500; color: #ddd; margin-top: 3px; }
 
   .app-preview .tabbar { margin-top: auto; border-top: 3px solid var(--ink); display: flex; }
-  .app-preview .tabbar div { flex: 1; text-align: center; padding: 11px 0 13px; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #999; border-left: 1px solid #ddd; }
+  .app-preview .tabbar div { flex: 1; text-align: center; padding: 11px 0 13px; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #737373; border-left: 1px solid #ddd; }
   .app-preview .tabbar div:first-child { border-left: none; }
   .app-preview .tabbar div.on { color: var(--ink); }
   .app-preview .tabbar div span { display: block; font-size: 15px; margin-bottom: 3px; }
@@ -558,7 +559,7 @@
   .app-preview .song .meta { font-size: 11px; font-weight: 500; letter-spacing: var(--track-tight); color: #555; margin-top: 2px; }
   .app-preview .song .notes { font-size: 12px; color: #333; margin-top: 6px; line-height: 1.45; border-left: 3px solid var(--yellow); padding-left: 8px; }
   .app-preview .song .grip { color: #bbb; font-size: 16px; font-weight: 700; flex: none; align-self: center; letter-spacing: -1px; }
-  .app-preview .song.enc .disc { background: var(--red); }
+  .app-preview .song.enc .disc { background: var(--red-ink); }
   .app-preview .addrow { padding: 13px 16px; font-size: 13px; font-weight: 700; letter-spacing: var(--track-tight); color: var(--blue); border-bottom: 1px solid var(--rule); }
 
   .app-preview .tourpad { padding-top: 18px; }
@@ -573,7 +574,7 @@
   .app-preview .waypoint .ven { font-size: 12px; color: #444; margin-top: 2px; }
   .app-preview .waypoint .settime { font-size: 12px; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; }
   .app-preview .waypoint.today .rail .disc { background: var(--red); }
-  .app-preview .waypoint.today .city::after { content: "Today"; background: var(--red); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: var(--track-tight); padding: 2px 6px; margin-left: 8px; vertical-align: 3px; }
+  .app-preview .waypoint.today .city::after { content: "Today"; background: var(--red-ink); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: var(--track-tight); padding: 2px 6px; margin-left: 8px; vertical-align: 3px; }
 
   .showcase-caption { width: min(352px, 82vw); font-size: 0.85rem; line-height: 1.5; color: #444; margin-top: 16px; letter-spacing: var(--track-tight); }
 
@@ -585,7 +586,7 @@
     background-image: linear-gradient(#e2e2e2 1px, transparent 1px), linear-gradient(90deg, #e2e2e2 1px, transparent 1px);
     background-size: 12.5% 12.5%;
   }
-  .app-preview .splabel { position: absolute; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #9a9a9a; text-transform: uppercase; }
+  .app-preview .splabel { position: absolute; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #737373; text-transform: uppercase; }
   .app-preview .splabel.up { top: 8px; left: 8px; }
   .app-preview .splabel.aud { bottom: -20px; left: 50%; transform: translateX(-50%); }
   .app-preview .spdisc {
@@ -602,20 +603,20 @@
   .app-preview .spdisc.ring { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--ink); }
 
   .app-preview .chatlist { flex: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
-  .app-preview .sysmsg { align-self: center; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #999; text-transform: uppercase; margin: 2px 0 4px; }
+  .app-preview .sysmsg { align-self: center; font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #737373; text-transform: uppercase; margin: 2px 0 4px; }
   .app-preview .msg-row { display: flex; flex-direction: column; max-width: 80%; }
   .app-preview .msg-row.them { align-items: flex-start; align-self: flex-start; }
   .app-preview .msg-row.me { align-items: flex-end; align-self: flex-end; }
   .app-preview .msg-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
   .app-preview .msg-avatar { width: 20px; height: 20px; font-size: 10px; }
-  .app-preview .msg-sender { font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #777; }
+  .app-preview .msg-sender { font-size: 10px; font-weight: 700; letter-spacing: var(--track-tight); color: #737373; }
   .app-preview .msg-bubble { padding: 9px 12px; font-size: 13px; font-weight: 500; line-height: 1.4; }
   .app-preview .msg-row.them .msg-bubble { background: #f0f0f0; color: #111; }
   .app-preview .msg-row.me .msg-bubble { background: var(--ink); color: #fff; }
 
   .app-preview .composer { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 1px solid var(--rule); }
-  .app-preview .composer .placeholder { font-size: 13px; color: #999; }
-  .app-preview .composer .sendbtn { font-size: 11px; font-weight: 700; letter-spacing: var(--track-tight); color: var(--red); }
+  .app-preview .composer .placeholder { font-size: 13px; color: #737373; }
+  .app-preview .composer .sendbtn { font-size: 11px; font-weight: 700; letter-spacing: var(--track-tight); color: var(--red-ink); }
 
   /* ---------- section scaffolding ---------- */
 
@@ -653,7 +654,7 @@
   }
 
   .section-sub a {
-    color: var(--red);
+    color: var(--red-ink);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -849,7 +850,7 @@
     padding: 16px 24px;
   }
 
-  .plan.featured .plan-head { background: var(--red); }
+  .plan.featured .plan-head { background: var(--red-ink); }
 
   .plan-head span {
     display: block;
@@ -870,7 +871,7 @@
   .plan-price sup {
     font-size: 0.9rem;
     font-weight: 400;
-    color: var(--gray);
+    color: #6b6d6f;
     top: -0.6em;
   }
 
@@ -921,8 +922,8 @@
   .plan .btn:hover { background: var(--black); color: var(--white); }
 
   .plan.featured .btn {
-    background: var(--red);
-    border-color: var(--red);
+    background: var(--red-ink);
+    border-color: var(--red-ink);
     color: var(--white);
   }
 
@@ -975,7 +976,7 @@
   }
 
   .faq-item p a {
-    color: var(--red);
+    color: var(--red-ink);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -1029,7 +1030,7 @@
     flex-wrap: wrap;
     gap: 10px;
     padding-top: 20px;
-    color: #6b6d6f;
+    color: #919395;
     font-size: 0.74rem;
     letter-spacing: var(--track-tight);
   }
@@ -1073,7 +1074,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
 </head>
 <body>
 
-<div class="status-strip">Outrider is live on the web and iOS - <a href="https://app.outriderapp.com">try it now</a> or <a href="https://apps.apple.com/app/id6801227604">get the iOS app</a>.</div>
+<aside class="status-strip" aria-label="Availability">Outrider is live on the web and iOS - <a href="https://app.outriderapp.com">try it now</a> or <a href="https://apps.apple.com/app/id6801227604">get the iOS app</a>.</aside>
 
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -1087,7 +1088,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
 
 <main id="top">
   <section class="hero">
-    <img class="hero-photo" src="assets/hero.jpg" alt="A packed crowd crowd-surfing at a live show" />
+    <img class="hero-photo" src="assets/hero.jpg" srcset="assets/hero-900.jpg 900w, assets/hero.jpg 1800w" sizes="100vw" fetchpriority="high" alt="A packed crowd crowd-surfing at a live show" />
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-cap">
       <div class="wrap">
@@ -1115,7 +1116,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
       <h2 class="section-title">What show day looks like.</h2>
       <p class="section-sub">This is the real interface, not a mockup of one - same schedule, same setlist, same route.</p>
 
-      <div class="showcase-phones app-preview">
+      <div class="showcase-phones app-preview" tabindex="0" role="region" aria-label="App screens, scroll sideways">
         <div class="showcase-col">
           <div class="phone">
             <div class="appbar">
@@ -1178,7 +1179,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
                 <div class="sbody"><div class="title">Exit 9</div><div class="meta">Key C &middot; 4:44</div></div>
                 <span class="grip">&#8801;</span></div>
             </div>
-            <div class="sectionbar" style="background:var(--red)">Encore</div>
+            <div class="sectionbar" style="background:var(--red-ink)">Encore</div>
             <div>
               <div class="song enc"><span class="disc">E1</span>
                 <div class="sbody"><div class="title">Last Train Home</div><div class="meta">Key A &middot; 6:10</div></div>
@@ -1203,7 +1204,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
               <div class="btitle">Northeast Run</div>
               <div class="sub">Jul 6 &ndash; Jul 18 &middot; 9 shows</div>
             </div>
-            <div class="sectionbar" style="background:var(--green)">Route</div>
+            <div class="sectionbar" style="background:#008236">Route</div>
             <div class="tourpad">
               <div class="waypoint">
                 <div class="rail"><span class="disc">1</span><span class="rline"></span></div>
@@ -1463,7 +1464,7 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
         </details>
         <details class="faq-item">
           <summary>Is Outrider available on iPhone?</summary>
-          <p>The iPhone app is in App Store review now. The web app is fully live today - sign up, use it on any device, and your account carries over the moment iOS launches. Nothing to re-enter.</p>
+          <p>Yes. Outrider is on the App Store for iPhone and iPad. It's the same account as the web app, so anything you set up on one shows up on the other.</p>
         </details>
         <details class="faq-item">
           <summary>What about Android?</summary>
