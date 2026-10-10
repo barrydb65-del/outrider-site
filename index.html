@@ -374,8 +374,10 @@
     line-height: 1.04;
     letter-spacing: var(--track-tightest);
     text-wrap: balance;
-    max-width: 14ch;
+    max-width: 22ch;
   }
+
+  .hero h1 .h1-line { display: block; }
 
   .hero-lede {
     color: var(--white);
@@ -383,6 +385,7 @@
     font-size: clamp(1.2rem, 2.3vw, 1.6rem);
     line-height: 1.3;
     max-width: 46ch;
+    text-wrap: balance;
     margin-top: 20px;
     letter-spacing: var(--track-tight);
   }
@@ -1047,7 +1050,7 @@
     .stops { grid-template-columns: repeat(2, 1fr); }
     .form { max-width: 100%; }
     .hero-actions { flex-direction: column; }
-    .hero { min-height: min(115vh, 960px); }
+    .hero { min-height: min(92vh, 760px); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1093,9 +1096,8 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
     <div class="hero-cap">
       <div class="wrap">
         <p class="eyebrow"><span class="eyebrow-dot"></span>Band, Show, and Tour management for the working Musician, built for the road</p>
-        <h1>Show up looking like you've got a road manager.</h1>
-        <p class="hero-lede">Even if it's just the four of you.<br><span style="opacity:0.68; font-weight:500;">(Unless you're a ska band. Then it's nine of you.)</span></p>
-        <p class="hero-sub">It's everything before the stage lights go on that's chaos.<br>Load-in. Set times. Hotels. Guest lists. Stage plots.<br>One place. One app.<br>One less thing to worry about.</p>
+        <h1><span class="h1-line">You didn't start a band</span> <span class="h1-line">to manage a band.</span></h1>
+        <p class="hero-lede">Show schedules, setlists, stage plots, guest lists, and more.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://app.outriderapp.com">Try it now</a>
           <a class="btn btn-ghost" href="#plans">See plans</a>
