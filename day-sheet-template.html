@@ -350,8 +350,52 @@
     letter-spacing: var(--track-tight);
   }
 
+  .download-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    align-items: center;
+    border: 3px solid var(--black);
+    padding: 28px;
+    margin-top: 48px;
+  }
+
+  .download-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #d6d6d6;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .download-card h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: var(--track-tighter);
+    line-height: 1.1;
+  }
+
+  .download-card p {
+    color: #4a4c4e;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-top: 10px;
+    max-width: 52ch;
+    letter-spacing: var(--track-tight);
+  }
+
+  .download-card .btn { margin-top: 20px; }
+
+  .download-card .fine {
+    font-size: 0.8rem;
+    color: #6b6d6f;
+    margin-top: 12px;
+  }
+
   @media (max-width: 520px) {
     .body-section p, .body-section li { font-size: 0.95rem; }
+    .download-card { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+    .download-card img { max-width: 240px; }
   }
 </style>
 <!-- Meta Pixel Code -->
@@ -394,6 +438,18 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
   </div>
 
   <div class="wrap">
+    <section class="download-card" aria-labelledby="dl-h">
+      <a href="/downloads/outrider-day-sheet-template.pdf" download>
+        <img src="assets/templates/day-sheet-preview.jpg" width="556" height="720" alt="Preview of the free printable day sheet: venue, contacts, schedule with load-in through load-out, venue details, after-show and tomorrow sections." loading="lazy">
+      </a>
+      <div>
+        <h2 id="dl-h">Free printable day sheet</h2>
+        <p>One page, US Letter. Venue, contacts, the full schedule from load-in to load-out, Wi-Fi, merch, hotel, tomorrow's drive, and the location of the good bathroom. Print it, fill it in, tape it to the green room door.</p>
+        <a class="btn btn-primary" href="/downloads/outrider-day-sheet-template.pdf" download>Download the PDF</a>
+        <p class="fine">No signup. Free to copy and share.</p>
+      </div>
+    </section>
+
     <article class="body-section">
       <h2>The one document that actually matters that day</h2>
       <p>Most tour paperwork can wait. A day sheet can't - it's the thing everyone actually checks the morning of a show. Outrider's day sheet is built to be read in five seconds: venue, schedule, lodging, and production contact, all on one screen, with everything else (setlist, stage plot, rider, guest list) one tap away.</p>
