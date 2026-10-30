@@ -350,8 +350,55 @@
     letter-spacing: var(--track-tight);
   }
 
+  .download-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    align-items: center;
+    border: 3px solid var(--black);
+    padding: 28px;
+    margin-top: 48px;
+  }
+
+  .download-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #d6d6d6;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .download-card h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: var(--track-tighter);
+    line-height: 1.1;
+  }
+
+  .download-card p {
+    color: #4a4c4e;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-top: 10px;
+    max-width: 52ch;
+    letter-spacing: var(--track-tight);
+  }
+
+  .download-card .btn { margin-top: 20px; }
+
+  .download-card .fine {
+    font-size: 0.8rem;
+    color: #6b6d6f;
+    margin-top: 12px;
+  }
+
+  .download-card.wide { grid-template-columns: 340px 1fr; }
+
   @media (max-width: 520px) {
     .body-section p, .body-section li { font-size: 0.95rem; }
+    .download-card, .download-card.wide { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+    .download-card img { max-width: 240px; }
+    .download-card.wide img { max-width: 100%; }
   }
 </style>
 <!-- Meta Pixel Code -->
@@ -394,6 +441,18 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
   </div>
 
   <div class="wrap">
+    <section class="download-card" aria-labelledby="dl-h">
+      <a href="/downloads/outrider-tech-hospitality-rider-template.pdf" download>
+        <img src="assets/templates/rider-preview.jpg" width="556" height="720" alt="Preview of the free printable tech rider: contacts, the basics, a 16-channel input list, monitor mixes and backline." loading="lazy">
+      </a>
+      <div>
+        <h2 id="dl-h">Free printable tech &amp; hospitality rider</h2>
+        <p>Two pages, US Letter. Page one is the tech rider: contacts, a 16-channel input list, monitor mixes, and backline. Page two is hospitality: arrival, green room, food and dietary needs, guests, merch, and lodging. Everything on it is negotiable. Except the water.</p>
+        <a class="btn btn-primary" href="/downloads/outrider-tech-hospitality-rider-template.pdf" download>Download the PDF</a>
+        <p class="fine">No signup. Free to copy and share.</p>
+      </div>
+    </section>
+
     <article class="body-section">
       <h2>One rider, every show</h2>
       <p>Most riders get written once, saved as a PDF somewhere, and re-attached to an email every single show - or worse, rewritten from memory each time something changes. Outrider keeps your rider live: edit it once, and it's automatically current on every upcoming show's Day Sheet.</p>

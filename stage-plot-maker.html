@@ -350,8 +350,55 @@
     letter-spacing: var(--track-tight);
   }
 
+  .download-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    align-items: center;
+    border: 3px solid var(--black);
+    padding: 28px;
+    margin-top: 48px;
+  }
+
+  .download-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #d6d6d6;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .download-card h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: var(--track-tighter);
+    line-height: 1.1;
+  }
+
+  .download-card p {
+    color: #4a4c4e;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-top: 10px;
+    max-width: 52ch;
+    letter-spacing: var(--track-tight);
+  }
+
+  .download-card .btn { margin-top: 20px; }
+
+  .download-card .fine {
+    font-size: 0.8rem;
+    color: #6b6d6f;
+    margin-top: 12px;
+  }
+
+  .download-card.wide { grid-template-columns: 340px 1fr; }
+
   @media (max-width: 520px) {
     .body-section p, .body-section li { font-size: 0.95rem; }
+    .download-card, .download-card.wide { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+    .download-card img { max-width: 240px; }
+    .download-card.wide img { max-width: 100%; }
   }
 </style>
 <!-- Meta Pixel Code -->
@@ -394,6 +441,18 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
   </div>
 
   <div class="wrap">
+    <section class="download-card wide" aria-labelledby="dl-h">
+      <a href="/downloads/outrider-stage-plot-template.pdf" download>
+        <img src="assets/templates/stage-plot-preview.jpg" width="900" height="695" alt="Preview of the free printable stage plot: a blank dotted stage with upstage, downstage and stage left and right marked, a symbol key, and a who is where list." loading="lazy">
+      </a>
+      <div>
+        <h2 id="dl-h">Free printable stage plot</h2>
+        <p>One page, landscape. A blank stage with a dot grid to draw on, a key of standard symbols (mics, DIs, wedges, amps, risers, power drops, wireless and in-ears), and a who-stands-where list. Print it, draw it, hand it to the sound engineer.</p>
+        <a class="btn btn-primary" href="/downloads/outrider-stage-plot-template.pdf" download>Download the PDF</a>
+        <p class="fine">No signup. Free to copy and share.</p>
+      </div>
+    </section>
+
     <article class="body-section">
       <h2>Build it once, use it everywhere</h2>
       <p>Most stage plot tools make you build a new one for every show. Outrider's stage plot lives with your band - build a master layout once, then copy it into any show in a tap. If your rig changes for one date, edit that show's plot without touching the master.</p>
