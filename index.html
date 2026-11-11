@@ -1057,9 +1057,114 @@
   @media (prefers-reduced-motion: reduce) {
     .line-track, .stop { transition: none; }
   }
+
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    background: var(--black);
+    color: var(--white);
+    border-top: 3px solid var(--red);
+  }
+
+  .cookie-banner-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .cookie-banner p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: var(--track-tight);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .cookie-banner a { color: var(--white); text-decoration: underline; }
+
+  .cookie-banner-actions { display: flex; gap: 10px; flex: none; }
+
+  .btn-cookie {
+    appearance: none;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    padding: 9px 16px;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  .btn-cookie-accept { background: var(--red); border-color: var(--red); }
+  .btn-cookie-accept:hover { background: #d02922; border-color: #d02922; }
+  .btn-cookie-decline:hover { background: var(--white); color: var(--black); }
+
+  @media (max-width: 640px) {
+    .cookie-banner-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  .contact-section { border-top: 1px solid var(--rule); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 420px;
+  }
+
+  .contact-form label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    color: var(--black);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    border: 2px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: var(--track-tight);
+    padding: 12px 14px;
+    width: 100%;
+  }
+
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+
+  .contact-form .btn { align-self: flex-start; }
+
+  .contact-note {
+    color: var(--gray);
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    margin-top: 2px;
+  }
 </style>
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (loads only after cookie consent) -->
 <script>
+function outriderLoadMetaPixel(){
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -1070,13 +1175,45 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1586562796155714');
 fbq('track', 'PageView');
+}
+try {
+  if (localStorage.getItem('outrider_cookie_consent') === 'accepted') {
+    outriderLoadMetaPixel();
+  }
+} catch (e) {}
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
-/></noscript>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="wrap cookie-banner-inner">
+    <p>This site uses a small set of cookies for basic ad measurement (Meta Pixel). <a href="/privacy">Privacy policy</a></p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-cookie btn-cookie-decline" id="cookie-decline">Decline</button>
+      <button type="button" class="btn-cookie btn-cookie-accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var consent = localStorage.getItem('outrider_cookie_consent');
+    var banner = document.getElementById('cookie-banner');
+    if (!consent && banner) { banner.hidden = false; }
+    var acceptBtn = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+    if (acceptBtn) acceptBtn.addEventListener('click', function(){
+      try { localStorage.setItem('outrider_cookie_consent', 'accepted'); } catch(e){}
+      banner.hidden = true;
+      if (typeof outriderLoadMetaPixel === 'function') outriderLoadMetaPixel();
+    });
+    if (declineBtn) declineBtn.addEventListener('click', function(){
+      try { localStorage.setItem('outrider_cookie_consent', 'declined'); } catch(e){}
+      banner.hidden = true;
+    });
+  } catch(e) {}
+})();
+</script>
 
 <aside class="status-strip" aria-label="Availability">Outrider is live on the web and iOS - <a href="https://app.outriderapp.com">try it now</a> or <a href="https://apps.apple.com/app/id6801227604">get the iOS app</a>.</aside>
 
@@ -1484,6 +1621,29 @@ src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
       </div>
     </div>
   </section>
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <div class="section-head"><span>Contact</span></div>
+      <h2 class="section-title">Something broken? Tell me direct.</h2>
+      <p class="section-sub">It's one person building this. Bug reports and "this is confusing" notes go straight to me, not a ticket queue.</p>
+
+      <div class="contact-grid">
+        <form class="contact-form" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New message from outriderapp.com">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="What's going on?" required></textarea>
+          <button class="btn btn-primary" type="submit">Send it</button>
+          <p class="contact-note">Goes straight to help@outriderapp.com. Or just email that address directly.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="That page does not exist on Outrider. Find your way back to shows, stage plots, riders and day sheets.">
+<meta name="robots" content="noindex">
+<title>Page Not Found | Outrider Tour Manager</title>
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="alternate icon" href="assets/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Outrider Tour Manager">
+<meta property="og:title" content="Page Not Found">
+<meta property="og:description" content="That page does not exist on Outrider. Find your way back to shows, stage plots, riders and day sheets.">
+<meta property="og:image" content="https://www.outriderapp.com/assets/hero.jpg">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page Not Found">
+<meta name="twitter:description" content="That page does not exist on Outrider. Find your way back to shows, stage plots, riders and day sheets.">
+<meta name="twitter:image" content="https://www.outriderapp.com/assets/hero.jpg">
+
+<style>
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Outrider Grotesk";
+    src: url("assets/fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ee352e;
+    --gray: #a7a9ac;
+    --rule: #d8d8d8;
+    --font-display: "Outrider Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --track-tight: -0.01em;
+    --track-tighter: -0.02em;
+    --track-tightest: -0.035em;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { min-width: 320px; }
+
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+    transform: translateY(-1px);
+  }
+
+  footer .logo-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    border: 2px solid var(--white);
+    padding: 7px 14px;
+  }
+
+  .topbar-link:focus-visible,
+  .btn:focus-visible {
+    outline: 3px solid #fccc0a;
+    outline-offset: 2px;
+  }
+
+  .page-head {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(28px, 5vw, 40px);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  .page-head h1 {
+    font-weight: 900;
+    font-size: clamp(2.1rem, 5.5vw, 3.6rem);
+    letter-spacing: var(--track-tightest);
+    line-height: 1.03;
+    max-width: 18ch;
+  }
+
+  .page-lede {
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.4;
+    max-width: 46ch;
+    margin-top: 18px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .body-section {
+    max-width: 720px;
+    padding: clamp(40px, 7vw, 64px) 0;
+  }
+
+  .body-section p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    letter-spacing: var(--track-tight);
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .body-section h2 {
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: var(--track-tighter);
+    margin-top: 40px;
+    margin-bottom: 14px;
+  }
+
+  .body-section h2:first-child { margin-top: 0; }
+
+  .body-section strong { color: var(--black); }
+
+  .cta-band {
+    background: var(--black);
+    color: var(--white);
+    padding: clamp(40px, 7vw, 64px) 0;
+  }
+
+  .cta-band h2 {
+    font-weight: 900;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    letter-spacing: var(--track-tighter);
+    max-width: 22ch;
+  }
+
+  .cta-band p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-top: 12px;
+    max-width: 44ch;
+    letter-spacing: var(--track-tight);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .btn {
+    appearance: none;
+    border: 3px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: var(--track-tight);
+    text-decoration: none;
+    padding: 13px 24px;
+    cursor: pointer;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: #d02922; border-color: #d02922; }
+  .btn-ghost:hover { background: var(--white); color: var(--black); }
+
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+  }
+
+  .footer-tag {
+    color: var(--gray);
+    font-size: 0.85rem;
+    max-width: 34ch;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: var(--track-tight);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: var(--track-tight);
+    color: var(--gray);
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    color: #6b6d6f;
+    font-size: 0.74rem;
+    letter-spacing: var(--track-tight);
+  }
+
+  @media (max-width: 520px) {
+    .body-section p { font-size: 0.95rem; }
+  }
+
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    background: var(--black);
+    color: var(--white);
+    border-top: 3px solid var(--red);
+  }
+
+  .cookie-banner-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .cookie-banner p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: var(--track-tight);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .cookie-banner a { color: var(--white); text-decoration: underline; }
+
+  .cookie-banner-actions { display: flex; gap: 10px; flex: none; }
+
+  .btn-cookie {
+    appearance: none;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    padding: 9px 16px;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  .btn-cookie-accept { background: var(--red); border-color: var(--red); }
+  .btn-cookie-accept:hover { background: #d02922; border-color: #d02922; }
+  .btn-cookie-decline:hover { background: var(--white); color: var(--black); }
+
+  @media (max-width: 640px) {
+    .cookie-banner-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+<!-- Meta Pixel Code (loads only after cookie consent) -->
+<script>
+function outriderLoadMetaPixel(){
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1586562796155714');
+fbq('track', 'PageView');
+}
+try {
+  if (localStorage.getItem('outrider_cookie_consent') === 'accepted') {
+    outriderLoadMetaPixel();
+  }
+} catch (e) {}
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="wrap cookie-banner-inner">
+    <p>This site uses a small set of cookies for basic ad measurement (Meta Pixel). <a href="/privacy">Privacy policy</a></p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-cookie btn-cookie-decline" id="cookie-decline">Decline</button>
+      <button type="button" class="btn-cookie btn-cookie-accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var consent = localStorage.getItem('outrider_cookie_consent');
+    var banner = document.getElementById('cookie-banner');
+    if (!consent && banner) { banner.hidden = false; }
+    var acceptBtn = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+    if (acceptBtn) acceptBtn.addEventListener('click', function(){
+      try { localStorage.setItem('outrider_cookie_consent', 'accepted'); } catch(e){}
+      banner.hidden = true;
+      if (typeof outriderLoadMetaPixel === 'function') outriderLoadMetaPixel();
+    });
+    if (declineBtn) declineBtn.addEventListener('click', function(){
+      try { localStorage.setItem('outrider_cookie_consent', 'declined'); } catch(e){}
+      banner.hidden = true;
+    });
+  } catch(e) {}
+})();
+</script>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
+    <div class="topbar-links">
+      <a class="topbar-link" href="/#plans">Pricing</a>
+      <a class="topbar-link" href="https://app.outriderapp.com">Log In</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>404</p>
+      <h1>That page isn't on the setlist.</h1>
+      <p class="page-lede">The link's broken or the page moved. Your show info isn't - here's the way back.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="body-section">
+      <p>Whatever you were looking for isn't at this address. Maybe the link was typo'd, maybe it's from an old bookmark - either way, here's where everything actually lives:</p>
+
+      <div class="feature-strip">
+        <div class="feature-item">
+          <h3><a href="/">Home</a></h3>
+          <p>Start over from the top.</p>
+        </div>
+        <div class="feature-item">
+          <h3><a href="/tour-management">Tour management</a></h3>
+          <p>Shows, runs, and tours in one place.</p>
+        </div>
+        <div class="feature-item">
+          <h3><a href="/stage-plot-maker">Stage plot maker</a></h3>
+          <p>Drag-and-drop stage layouts.</p>
+        </div>
+        <div class="feature-item">
+          <h3><a href="/tech-rider-template">Tech &amp; hospitality riders</a></h3>
+          <p>Specs, written once.</p>
+        </div>
+        <div class="feature-item">
+          <h3><a href="/day-sheet-template">Day sheet template</a></h3>
+          <p>Load-in to load-out, one sheet.</p>
+        </div>
+        <div class="feature-item">
+          <h3><a href="/who-built-this">Who built this</a></h3>
+          <p>The story behind Outrider.</p>
+        </div>
+      </div>
+
+      <p>Still stuck? <a href="mailto:help@outriderapp.com">help@outriderapp.com</a> reaches me directly.</p>
+    </article>
+  </div>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2>Try it on your next show.</h2>
+      <p>Free to start. Shows, runs, and tours - stage plots, day sheets, setlists, guest lists, and riders, all in one place.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://app.outriderapp.com">Try it now</a>
+        <a class="btn btn-ghost" href="/#plans">See plans</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="/"><img class="logo-mark" src="assets/logo-mark.png" alt="" />Outrider</a>
+        <p class="footer-tag">Outrider Tour Manager. Band, Show, and Tour management for the working Musician. iOS and web, built for the road.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/who-built-this">Who Built This</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="https://www.instagram.com/theoutriderapp/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61592401079648" target="_blank" rel="noopener">Facebook</a>
+        <a href="mailto:help@outriderapp.com">help@outriderapp.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Dave Barry. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

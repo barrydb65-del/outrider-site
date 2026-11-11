@@ -400,9 +400,64 @@
     .download-card img { max-width: 240px; }
     .download-card.wide img { max-width: 100%; }
   }
+
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    background: var(--black);
+    color: var(--white);
+    border-top: 3px solid var(--red);
+  }
+
+  .cookie-banner-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .cookie-banner p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: var(--track-tight);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .cookie-banner a { color: var(--white); text-decoration: underline; }
+
+  .cookie-banner-actions { display: flex; gap: 10px; flex: none; }
+
+  .btn-cookie {
+    appearance: none;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: var(--track-tight);
+    padding: 9px 16px;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  .btn-cookie-accept { background: var(--red); border-color: var(--red); }
+  .btn-cookie-accept:hover { background: #d02922; border-color: #d02922; }
+  .btn-cookie-decline:hover { background: var(--white); color: var(--black); }
+
+  @media (max-width: 640px) {
+    .cookie-banner-inner { flex-direction: column; align-items: flex-start; }
+  }
 </style>
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (loads only after cookie consent) -->
 <script>
+function outriderLoadMetaPixel(){
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -413,13 +468,45 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1586562796155714');
 fbq('track', 'PageView');
+}
+try {
+  if (localStorage.getItem('outrider_cookie_consent') === 'accepted') {
+    outriderLoadMetaPixel();
+  }
+} catch (e) {}
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1586562796155714&ev=PageView&noscript=1"
-/></noscript>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="wrap cookie-banner-inner">
+    <p>This site uses a small set of cookies for basic ad measurement (Meta Pixel). <a href="/privacy">Privacy policy</a></p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-cookie btn-cookie-decline" id="cookie-decline">Decline</button>
+      <button type="button" class="btn-cookie btn-cookie-accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var consent = localStorage.getItem('outrider_cookie_consent');
+    var banner = document.getElementById('cookie-banner');
+    if (!consent && banner) { banner.hidden = false; }
+    var acceptBtn = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+    if (acceptBtn) acceptBtn.addEventListener('click', function(){
+      try { localStorage.setItem('outrider_cookie_consent', 'accepted'); } catch(e){}
+      banner.hidden = true;
+      if (typeof outriderLoadMetaPixel === 'function') outriderLoadMetaPixel();
+    });
+    if (declineBtn) declineBtn.addEventListener('click', function(){
+      try { localStorage.setItem('outrider_cookie_consent', 'declined'); } catch(e){}
+      banner.hidden = true;
+    });
+  } catch(e) {}
+})();
+</script>
 
 <header class="topbar">
   <div class="wrap topbar-inner">
