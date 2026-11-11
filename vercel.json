@@ -11,7 +11,7 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), camera=(), microphone=()" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google-analytics.com; font-src 'self' data:; connect-src 'self' https://www.facebook.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; form-action 'self' https://formspree.io"
+          "value": "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google-analytics.com; font-src 'self' data:; connect-src 'self' https://www.facebook.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; form-action 'self'"
         }
       ]
     }
